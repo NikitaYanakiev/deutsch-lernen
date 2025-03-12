@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/deutsch-lernen/static/css/main.c46bf3a8.css",
+    "main.js": "/deutsch-lernen/static/js/main.3d94c317.js",
+    "index.html": "/deutsch-lernen/index.html",
+    "main.c46bf3a8.css.map": "/deutsch-lernen/static/css/main.c46bf3a8.css.map",
+    "main.3d94c317.js.map": "/deutsch-lernen/static/js/main.3d94c317.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c46bf3a8.css",
+    "static/js/main.3d94c317.js"
+  ]
+}
