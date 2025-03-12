@@ -1,0 +1,290 @@
+@import "../../assets/styles/variables";
+
+.flashcard-game {
+  text-align: center;
+  padding: 0.8rem 1rem;
+  font-family: "Montserrat", "Roboto", sans-serif;
+  padding-bottom: 8rem;
+  &__header {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    margin-bottom: 2rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+      font-size: 1rem;
+    }
+  }
+
+  &__back {
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: none;
+    border: 1px solid $second-color;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 0.6rem 0.8rem;
+    border-radius: 50%;
+    transition: all 0.4s ease;
+    text-decoration: none;
+    color: $second-color;
+
+    &:hover {
+      background: $second-color;
+      color: $third-color;
+    }
+  }
+
+  &__title {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: $text-dark;
+    text-align: center;
+
+    @media (max-width: 768px) {
+      font-size: 1.2rem;
+    }
+  }
+
+  &__counter {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: $text-dark;
+    text-align: right;
+
+    @media (max-width: 768px) {
+      font-size: 1rem;
+      text-align: center;
+      margin-top: 0.5rem;
+    }
+  }
+
+  .flashcard-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+  }
+
+  .flashcard {
+    width: 320px;
+    height: 220px;
+    background: $card-front-color;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border-radius: 12px;
+    cursor: pointer;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.5s ease-in-out;
+    box-shadow: 0 4px 8px $card-shadow;
+
+    &.flipped {
+      transform: rotateY(180deg);
+    }
+
+    &__front,
+    &__back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+      padding: 1rem;
+    }
+
+    &__back {
+      background: $card-back-color;
+      box-shadow: 0 4px 8px $card-shadow;
+
+      color: $card-back-text;
+      transform: rotateY(180deg);
+    }
+
+    @media (max-width: 768px) {
+      width: 260px;
+      height: 180px;
+      font-size: 1.2rem;
+    }
+  }
+
+  .buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+    justify-content: center;
+
+    .btn {
+      padding: 0.8rem 1.5rem;
+      font-size: 1rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      &--no {
+        background: $btn-no;
+        box-shadow: $btn-no-shadow 0px 7px 0px 0px;
+        color: white;
+
+        &:hover {
+          box-shadow: $btn-no-shadow 0px 5px 0px 0px;
+        }
+        &:active {
+          box-shadow: $btn-no-shadow 0px 0px 0px 0px;
+          transform: translateY(5px);
+          transition: 200ms;
+        }
+      }
+
+      &--yes {
+        background: $btn-yes;
+        box-shadow: $btn-yes-shadow 0px 7px 0px 0px;
+        color: white;
+
+        &:hover {
+          box-shadow: $btn-yes-shadow 0px 5px 0px 0px;
+        }
+        &:active {
+          box-shadow: $btn-yes-shadow 0px 0px 0px 0px;
+          transform: translateY(5px);
+          transition: 200ms;
+        }
+      }
+    }
+
+    @media (max-width: 768px) {
+      gap: 2rem;
+    }
+  }
+
+  .btn-reset {
+    margin-top: 5rem;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    font-size: 1rem;
+    background-color: $btn-reset;
+    box-shadow: $btn-reset-shadow 0px 7px 0px 0px;
+
+    color: white;
+    transition: all 0.3s ease;
+    &:hover {
+      box-shadow: $btn-reset-shadow 0px 5px 0px 0px;
+    }
+    &:active {
+      box-shadow: $btn-reset-shadow 0px 0px 0px 0px;
+      transform: translateY(5px);
+      transition: 200ms;
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 1rem 1rem 8rem 1rem;
+
+    .flashcard-game__header {
+      grid-template-columns: 1fr;
+    }
+
+    .flashcard-game__counter {
+      font-size: 1rem;
+      text-align: center;
+    }
+  }
+}
+
+.finish {
+  padding: 0.8rem 1rem;
+}
+
+.game-finished {
+  text-align: center;
+  margin-top: 3rem;
+  padding: 2rem;
+  background: $list-bg;
+  box-shadow: 0 4px 10px $card-shadow;
+  border-radius: 1.5rem;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__title {
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: $text-dark;
+    margin-bottom: 1.5rem;
+  }
+
+  &__back,
+  &__reset {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease, transform 0.2s ease;
+    width: 100%;
+    max-width: 300px;
+    margin: 0.5rem 0;
+  }
+
+  &__back {
+    background: $btn-back;
+    color: $text-light;
+    box-shadow: $btn-back-shadow 0px 7px 0px 0px;
+    &:hover {
+      box-shadow: $btn-back-shadow 0px 5px 0px 0px;
+    }
+    &:active {
+      box-shadow: $btn-back-shadow 0px 0px 0px 0px;
+      transform: translateY(5px);
+      transition: 200ms;
+    }
+  }
+
+  &__reset {
+    background: $btn-reset;
+    color: $text-light;
+    box-shadow: $btn-reset-shadow 0px 7px 0px 0px;
+    &:hover {
+      box-shadow: $btn-reset-shadow 0px 5px 0px 0px;
+    }
+    &:active {
+      box-shadow: $btn-reset-shadow 0px 0px 0px 0px;
+      transform: translateY(5px);
+      transition: 200ms;
+    }
+  }
+
+  @media (max-width: 768px) {
+    max-width: 90%;
+    padding: 1.5rem;
+
+    &__title {
+      font-size: 1.4rem;
+    }
+
+    &__back,
+    &__reset {
+      font-size: 0.9rem;
+    }
+  }
+}

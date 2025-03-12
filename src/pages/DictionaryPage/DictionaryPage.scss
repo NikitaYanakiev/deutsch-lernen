@@ -1,0 +1,106 @@
+@import '../../assets/styles/variables';
+
+
+.dictionary {
+  font-family: "Montserrat", sans-serif;
+  text-align: center;
+  background-color: $main-color;
+  min-height: 100vh;
+
+  .header {
+    padding-top: 2rem;
+    position: fixed;
+    height: 20vh;
+    align-items: start;
+    z-index: 10;
+
+    &__title {
+      position: relative;
+      top: 15px;
+    }
+  }
+
+  &__title {
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    color: $achievements-text;
+  }
+
+  &__table-container {
+    width: 100%;
+    border-radius: 3rem 3rem 0 0;
+    margin-top: 20vh;
+    overflow: hidden;
+    padding-bottom: 8rem;
+  }
+
+  &__table {
+    position: relative;
+    z-index: 20;
+    width: 100%;
+    border-collapse: collapse;
+    background-color: $list-bg;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 0 auto;
+    padding-bottom: 8rem;
+    th {
+      padding: 45px 15px 15px 15px;
+      border: 1px solid $fourth-color;
+      text-align: left;
+      background-color: $second-color;
+      font-weight: 600;
+      color: $text-light;
+    }
+
+    td {
+      border: 1px solid $text-dark;
+      padding: 14px;
+      text-align: left;
+    }
+
+    .learned {
+      background-color: $achievements-bg-unlocked;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .dictionary {
+    &__title {
+      font-size: 2rem;
+    }
+
+    &__table-container {
+      max-width: 100%;
+    }
+
+    &__table {
+      font-size: 14px;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .dictionary {
+    &__title {
+      font-size: 1.8rem;
+    }
+
+    &__table-container {
+      width: 100%;
+    }
+
+    &__table {
+      font-size: 14px;
+
+      th:nth-child(3),
+      th:nth-child(4),
+      td:nth-child(3),
+      td:nth-child(4) {
+        display: none; 
+      }
+    }
+  }
+}
