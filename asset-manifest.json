@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/deutsch-lernen/static/css/main.c46bf3a8.css",
-    "main.js": "/deutsch-lernen/static/js/main.3d94c317.js",
+    "main.js": "/deutsch-lernen/static/js/main.b76369e8.js",
     "index.html": "/deutsch-lernen/index.html",
     "main.c46bf3a8.css.map": "/deutsch-lernen/static/css/main.c46bf3a8.css.map",
-    "main.3d94c317.js.map": "/deutsch-lernen/static/js/main.3d94c317.js.map"
+    "main.b76369e8.js.map": "/deutsch-lernen/static/js/main.b76369e8.js.map"
   },
   "entrypoints": [
     "static/css/main.c46bf3a8.css",
-    "static/js/main.3d94c317.js"
+    "static/js/main.b76369e8.js"
   ]
 }
