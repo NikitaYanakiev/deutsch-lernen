@@ -30,8 +30,9 @@ const ArticlesGame = () => {
 
   const handleAnswer = (article) => {
     const currentWord = cards[0];
-
-    if (currentWord.article === article) {
+    const correctArticles = currentWord.article.split("/"); 
+  
+    if (correctArticles.includes(article)) {
       if (!answeredWords.includes(currentWord.de)) {
         setAnsweredWords([...answeredWords, currentWord.de]);
         setCorrectCount(correctCount + 1);
@@ -50,6 +51,7 @@ const ArticlesGame = () => {
       }, 500);
     }
   };
+  
 
   const nextCard = () => {
     setCards((prevCards) => (prevCards.length > 1 ? prevCards.slice(1) : []));
@@ -110,7 +112,8 @@ const ArticlesGame = () => {
                 <span className={`game-article ${selectedArticle ? "correct" : ""}`}>
                   {selectedArticle || "___"}
                 </span>
-                <span className="game-word">{cards[0].de.replace(/^(der|die|das)\s+/, " ")}</span>
+                <span className="game-word">{cards[0].de.replace(/^((der|die|das)(\/(der|die|das))*)\s+/, "")}</span>
+
               </div>
               <div className="game-card-back">{cards[0].ru}</div>
             </div>

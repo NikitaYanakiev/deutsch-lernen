@@ -3,28 +3,43 @@ import Navbar from "../../components/sections/navbar/navbar";
 import "./AchievementsPage.scss";
 
 const achievementsList = [
-  { id: "beginner", title: "🎓 Новичок", goal: 1, key: "completedLessons", description: "Пройди 1 урок" },
-  { id: "student", title: "🎓 Ученик ", goal: 5, key: "completedLessons", description: "Пройди 5 уроков" },
-  { id: "pro", title: "🎓 Знаток", goal: 10, key: "completedLessons", description: "Пройди 10 уроков" },
-  { id: "lesson_explorer", title: "🎓 Легенда", goal: 16, key: "completedLessons", description: "Пройди 16 уроков" },
+  { id: "lessons_1", title: "🎓", goal: 1, key: "completedLessons", description: "Пройди 1 урок" },
+  { id: "lessons_5", title: "🎓", goal: 5, key: "completedLessons", description: "Пройди 5 уроков" },
+  { id: "lessons_10", title: "🎓", goal: 10, key: "completedLessons", description: "Пройди 10 уроков" },
+  { id: "lessons_16", title: "🎓 A1 пройден", goal: 16, key: "completedLessons", description: "Пройди 16 уроков" },
+  { id: "lessons_25", title: "🎓", goal: 25, key: "completedLessons", description: "Пройди 25 уроков" },
+  { id: "lessons_32", title: "🎓 A2 пройден", goal: 32, key: "completedLessons", description: "Пройди 32 урока" },
+  { id: "lessons_40", title: "🎓", goal: 40, key: "completedLessons", description: "Пройди 40 уроков" },
+  { id: "lessons_60", title: "🎓", goal: 60, key: "completedLessons", description: "Пройди 60 уроков" },
   
-  { id: "article_master", title: "✍ Новичок артиклей", goal: 30, key: "articlesLearned", description: "Выучи 30 артиклей" },
-  { id: "article_expert", title: "✍ Знаток артиклей", goal: 50, key: "articlesLearned", description: "Выучи 50 артиклей" },
-  { id: "article_guru", title: "✍ Мастер артиклей", goal: 100, key: "articlesLearned", description: "Выучи 100 артиклей" },
-  { id: "article_legend", title: "✍ Эксперт артиклей", goal: 200, key: "articlesLearned", description: "Выучи 200 артиклей" },
-  { id: "article_absolute_master", title: "✍ Легенда артиклей", goal: 500, key: "articlesLearned", description: "Выучи 500 артиклей" },
   
-  { id: "vocab_master", title: "📚 Новичок слов", goal: 50, key: "wordsLearned", description: "Выучи 50 слов" },
-  { id: "polyglot", title: "📚 Знаток слов", goal: 100, key: "wordsLearned", description: "Выучи 100 слов" },
-  { id: "word_expert", title: "📚 Мастер слов", goal: 200, key: "wordsLearned", description: "Выучи 200 слов" },
-  { id: "lexicon_guru", title: "📚 Эксперт слов", goal: 500, key: "wordsLearned", description: "Выучи 500 слов" },
-  { id: "vocabulary_master", title: "📚 Легенда слов", goal: 1000, key: "wordsLearned", description: "Выучи 1000 слов" },
+  { id: "articles_1", title: "✍", goal: 30, key: "articlesLearned", description: "Выучи 30 артиклей" },
+  { id: "articles_2", title: "✍", goal: 50, key: "articlesLearned", description: "Выучи 50 артиклей" },
+  { id: "articles_3", title: "✍", goal: 100, key: "articlesLearned", description: "Выучи 100 артиклей" },
+  { id: "articles_4", title: "✍", goal: 200, key: "articlesLearned", description: "Выучи 200 артиклей" },
+  { id: "articles_5", title: "✍", goal: 500, key: "articlesLearned", description: "Выучи 500 артиклей" },
+  { id: "articles_6", title: "✍", goal: 750, key: "articlesLearned", description: "Выучи 750 артиклей" },
+  { id: "articles_7", title: "✍", goal: 1000, key: "articlesLearned", description: "Выучи 1000 артиклей" },
   
-  { id: "flip_beginner", title: "🔄 Новичок карточек", goal: 50, key: "cardFlips", description: "Переверни 50 карточек" },
-  { id: "flip_expert", title: "🔄 Мастер карточек", goal: 100, key: "cardFlips", description: "Переверни 100 карточек" },
-  { id: "flip_master", title: "🔄 Эксперт карточек", goal: 200, key: "cardFlips", description: "Переверни 200 карточек" },
-  { id: "flip_guru", title: "🔄 Гуру карточек", goal: 500, key: "cardFlips", description: "Переверни 500 карточек" },
-  { id: "flip_legend", title: "🔄 Легенда карточек", goal: 1000, key: "cardFlips", description: "Переверни 1000 карточек" }
+  
+  { id: "words_1", title: "📚", goal: 50, key: "wordsLearned", description: "Выучи 50 слов" },
+  { id: "words_2", title: "📚", goal: 100, key: "wordsLearned", description: "Выучи 100 слов" },
+  { id: "words_3", title: "📚", goal: 200, key: "wordsLearned", description: "Выучи 200 слов" },
+  { id: "words_4", title: "📚", goal: 500, key: "wordsLearned", description: "Выучи 500 слов" },
+  { id: "words_5", title: "📚", goal: 1000, key: "wordsLearned", description: "Выучи 1000 слов" },
+  { id: "words_6", title: "📚", goal: 1500, key: "wordsLearned", description: "Выучи 1500 слов" },
+  { id: "words_7", title: "📚", goal: 2000, key: "wordsLearned", description: "Выучи 2000 слов" },
+  { id: "words_8", title: "📚", goal: 3000, key: "wordsLearned", description: "Выучи 3000 слов" },
+
+  { id: "flip_1", title: "🔄", goal: 50, key: "cardFlips", description: "Переверни 50 карточек" },
+  { id: "flip_2", title: "🔄", goal: 100, key: "cardFlips", description: "Переверни 100 карточек" },
+  { id: "flip_3", title: "🔄", goal: 200, key: "cardFlips", description: "Переверни 200 карточек" },
+  { id: "flip_4", title: "🔄", goal: 500, key: "cardFlips", description: "Переверни 500 карточек" },
+  { id: "flip_5", title: "🔄", goal: 1000, key: "cardFlips", description: "Переверни 1000 карточек" },
+  { id: "flip_6", title: "🔄", goal: 1500, key: "cardFlips", description: "Переверни 1500 карточек" },
+  { id: "flip_7", title: "🔄", goal: 2000, key: "cardFlips", description: "Переверни 2000 карточек" },
+  { id: "flip_8", title: "🔄", goal: 3000, key: "cardFlips", description: "Переверни 3000 карточек" },
+  
 ];
 
 
