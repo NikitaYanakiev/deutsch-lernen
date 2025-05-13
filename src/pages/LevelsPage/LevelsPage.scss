@@ -1,4 +1,4 @@
-@import '../../assets/styles/variables';
+@import "../../assets/styles/variables";
 
 .levels {
   position: relative;
@@ -49,8 +49,7 @@
       padding: 4rem 1rem 8rem 1rem;
     }
     @media (max-width: 330px) {
-
-     height: auto;
+      height: auto;
     }
   }
 
@@ -74,7 +73,13 @@
     padding: 1rem;
     width: 100%;
     text-align: center;
+    transition: all 0.3s ease;
 
+    @media (any-hover: hover) {
+      &:hover {
+        background: $fourth-color-hover;
+      }
+    }
     @media (max-width: 768px) {
       font-size: 1.5rem;
       padding: 1rem;

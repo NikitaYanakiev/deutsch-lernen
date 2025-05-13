@@ -86,9 +86,12 @@
       &_der {
         background-color: $btn-der;
         box-shadow: $btn-der-shadow 0px 7px 0px 0px;
-        &:hover {
-          box-shadow: $btn-der-shadow 0px 5px 0px 0px;
+        @media (any-hover: hover) {
+          &:hover {
+            box-shadow: $btn-der-shadow 0px 5px 0px 0px;
+          }
         }
+
         &:active {
           box-shadow: $btn-der-shadow 0px 0px 0px 0px;
           transform: translateY(5px);
@@ -98,9 +101,12 @@
       &_das {
         background-color: $btn-das;
         box-shadow: $btn-das-shadow 0px 7px 0px 0px;
-        &:hover {
-          box-shadow: $btn-das-shadow 0px 5px 0px 0px;
+        @media (any-hover: hover) {
+          &:hover {
+            box-shadow: $btn-das-shadow 0px 5px 0px 0px;
+          }
         }
+
         &:active {
           box-shadow: $btn-das-shadow 0px 0px 0px 0px;
           transform: translateY(5px);
@@ -110,8 +116,10 @@
       &_die {
         background-color: $btn-die;
         box-shadow: $btn-die-shadow 0px 7px 0px 0px;
-        &:hover {
-          box-shadow: $btn-die-shadow 0px 5px 0px 0px;
+        @media (any-hover: hover) {
+          &:hover {
+            box-shadow: $btn-die-shadow 0px 5px 0px 0px;
+          }
         }
         &:active {
           box-shadow: $btn-die-shadow 0px 0px 0px 0px;
@@ -166,8 +174,10 @@
     transition: all 0.3s ease;
     box-shadow: $btn-reset-shadow 0px 7px 0px 0px;
 
-    &:hover {
-      box-shadow: $btn-reset-shadow 0px 5px 0px 0px;
+    @media (any-hover: hover) {
+      &:hover {
+        box-shadow: $btn-reset-shadow 0px 5px 0px 0px;
+      }
     }
     &:active {
       box-shadow: $btn-reset-shadow 0px 0px 0px 0px;
@@ -233,8 +243,10 @@
     background: $btn-back;
     color: $text-light;
     box-shadow: $btn-back-shadow 0px 7px 0px 0px;
-    &:hover {
-      box-shadow: $btn-back-shadow 0px 5px 0px 0px;
+    @media (any-hover: hover) {
+      &:hover {
+        box-shadow: $btn-back-shadow 0px 5px 0px 0px;
+      }
     }
     &:active {
       box-shadow: $btn-back-shadow 0px 0px 0px 0px;
@@ -247,8 +259,10 @@
     background: $btn-reset;
     color: $text-light;
     box-shadow: $btn-reset-shadow 0px 7px 0px 0px;
-    &:hover {
-      box-shadow: $btn-reset-shadow 0px 5px 0px 0px;
+    @media (any-hover: hover) {
+      &:hover {
+        box-shadow: $btn-reset-shadow 0px 5px 0px 0px;
+      }
     }
     &:active {
       box-shadow: $btn-reset-shadow 0px 0px 0px 0px;
@@ -302,9 +316,11 @@
   transition: all 0.4s ease;
   text-decoration: none;
   color: $second-color;
-  &:hover {
-    background: $second-color;
-    color: $third-color;
+  @media (any-hover: hover) {
+    &:hover {
+      background: $second-color;
+      color: $third-color;
+    }
   }
 }
 

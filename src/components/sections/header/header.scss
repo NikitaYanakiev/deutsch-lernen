@@ -1,4 +1,4 @@
-@import '../../../assets/styles/variables';
+@import "../../../assets/styles/variables";
 
 .header {
   width: 100%;
@@ -10,7 +10,7 @@
   top: 0;
   left: 0;
   z-index: 10;
-  transition: all .4s ease;
+  transition: all 0.4s ease;
   &__title {
     font-size: 1.4rem;
     font-weight: bold;
@@ -35,9 +35,11 @@
     transition: all 0.4s ease;
     text-decoration: none;
     color: $second-color;
-    &:hover {
-      background: $second-color;
-      color: $third-color;
+    @media (any-hover: hover) {
+      &:hover {
+        background: $second-color;
+        color: $third-color;
+      }
     }
   }
 }

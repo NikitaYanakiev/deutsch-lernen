@@ -1,5 +1,4 @@
-@import '../../assets/styles/variables';
-
+@import "../../assets/styles/variables";
 
 .lessons {
   position: relative;
@@ -43,9 +42,11 @@
     transition: all 0.4s ease;
     text-decoration: none;
     color: $second-color;
-    &:hover {
-      background: $second-color;
-      color: $third-color;
+    @media (any-hover: hover) {
+      &:hover {
+        background: $second-color;
+        color: $third-color;
+      }
     }
   }
 
@@ -79,9 +80,10 @@
     border-radius: 12px;
     text-align: left;
     transition: all 0.3s ease;
-    &:hover {
-      transform: translateY(-2px);
-      background: $fourth-color-hover;
+    @media (any-hover: hover) {
+      &:hover {
+        background: $fourth-color-hover;
+      }
     }
   }
 

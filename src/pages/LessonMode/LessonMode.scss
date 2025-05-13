@@ -1,4 +1,4 @@
-@import '../../assets/styles/variables';
+@import "../../assets/styles/variables";
 
 .lesson-mode {
   text-align: center;
@@ -34,9 +34,11 @@
     text-decoration: none;
     color: $second-color;
 
-    &:hover {
-      background: $second-color;
-      color: $third-color;
+    @media (any-hover: hover) {
+      &:hover {
+        background: $second-color;
+        color: $third-color;
+      }
     }
   }
 
@@ -68,8 +70,10 @@
     transition: 0.3s;
     position: relative;
 
-    &:hover {
-      background: $fourth-color;
+    @media (any-hover: hover) {
+      &:hover {
+        background: $fourth-color;
+      }
     }
   }
 

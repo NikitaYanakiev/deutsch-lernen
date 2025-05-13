@@ -1,4 +1,4 @@
-@import '../../../assets/styles/variables';
+@import "../../../assets/styles/variables";
 
 .navbar {
   position: fixed;
@@ -16,8 +16,13 @@
     color: $fourth-color;
     font-size: 2rem;
     transition: all 0.4s ease;
-    &:hover {
+    &.active {
       color: $fifth-color;
+    }
+    @media (any-hover: hover) {
+      &:hover {
+        color: $fifth-color;
+      }
     }
   }
   &__achievements {
