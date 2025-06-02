@@ -11,7 +11,7 @@ import { FaVolumeHigh } from "react-icons/fa6";
 import { FiRefreshCcw } from "react-icons/fi";
 
 import finishImg from "../../assets/icons/finish.png";
-import "./FlashcardGame.scss";
+import "./flashcardGame.scss";
 
 const FlashcardGame = () => {
   const { level, lessonId } = useParams();

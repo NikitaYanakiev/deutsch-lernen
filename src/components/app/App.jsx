@@ -18,7 +18,6 @@ import WriteByImageGame from "../common/Games/WriteByImageGame/WriteByImageGame"
 import CollectByImageGame from "../common/Games/CollectByImageGame/CollectByImageGame";
 import ComboByImageGame from "../common/Games/ComboByImageGame/ComboByImageGame";
 import ProfilePage from "../../pages/ProfilePage/ProfilePage";
-import InstallPrompt from "../../assets/utils/InstallPrompt";
 
 function App() {
   const userLanguage = localStorage.getItem("userLanguage");
@@ -31,7 +30,6 @@ function App() {
 
   return (
     <div className="App">
-      <InstallPrompt />
       <BrowserRouter>
         <ScrollToTop />
         <Routes>
