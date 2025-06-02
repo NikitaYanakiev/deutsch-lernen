@@ -1,0 +1,138 @@
+@import "../../../../assets/styles/variables";
+
+.game-setcard {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  cursor: pointer;
+  border: 2px solid var(--text-sub);
+  border-radius: 8px;
+  text-align: center;
+  background-color: var(--bg-main-color);
+  overflow: hidden;
+  &--learned {
+    border-color: #6cbe45;
+  }
+  &__img {
+    padding:1.5rem 0.5rem 0.5rem 0.5rem;
+    width: 100%;
+    max-width: 80px;
+    margin: 0 auto;
+    img {
+      width: 100%;
+      display: block;
+    }
+  }
+  &__info {
+    padding: 0.8rem;
+    background-color: var(--bg-second-color);
+  }
+  &__title {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0;
+    color: var(--text-dark);
+  }
+  .checkbox-wrapper-31 {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 20px;
+    height: 20px;
+
+    input[type="checkbox"] {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      margin: 0;
+      opacity: 0;
+      appearance: none;
+      -webkit-appearance: none;
+      cursor: pointer;
+    }
+
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    .background {
+      fill: #ccc;
+      transition: ease all 0.6s;
+    }
+
+    .stroke {
+      fill: none;
+      stroke: #fff;
+      stroke-miterlimit: 10;
+      stroke-width: 2px;
+      stroke-dashoffset: 100;
+      stroke-dasharray: 100;
+      transition: ease all 0.6s;
+    }
+
+    .check {
+      fill: none;
+      stroke: #fff;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-width: 2px;
+      stroke-dashoffset: 22;
+      stroke-dasharray: 22;
+      transition: ease all 0.6s;
+    }
+
+    input[type="checkbox"]:checked + svg .background {
+      fill: #6cbe45;
+    }
+
+    input[type="checkbox"]:checked + svg .stroke {
+      stroke-dashoffset: 0;
+    }
+
+    input[type="checkbox"]:checked + svg .check {
+      stroke-dashoffset: 0;
+    }
+  }
+
+  &__stamp {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-15deg);
+    font-size: 18px;
+    font-weight: bold;
+    color: #2ecc71;
+    border: 3px solid #2ecc71;
+    padding: 0.4rem 1rem;
+    border-radius: 4px;
+    text-transform: uppercase;
+    opacity: 0;
+    animation: stampIn 0.4s ease-out forwards;
+    pointer-events: none;
+    background-color: var(--stamp-bg);
+    @media (max-width: 480px) {
+      &__stamp {
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+@keyframes stampIn {
+  0% {
+    transform: translate(-50%, -50%) rotate(-15deg) scale(2);
+    opacity: 0;
+  }
+  80% {
+    transform: translate(-50%, -50%) rotate(-15deg) scale(0.95);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(-15deg) scale(1);
+    opacity: 1;
+  }
+}

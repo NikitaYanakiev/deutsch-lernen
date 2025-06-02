@@ -4,7 +4,7 @@
 body {
   margin: 0;
   font-family: "Montserrat", "Roboto" , sans-serif;
-	background-color: $main-color;
+	background-color: var(--bg-second-color);
 }
 
 * {

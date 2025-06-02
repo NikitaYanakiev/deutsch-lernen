@@ -1,27 +1,33 @@
 @import "../../../assets/styles/variables";
 
 .navbar {
+  
   position: fixed;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: $second-color;
+  height: 65px;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  border-top: 2px solid var(--main-color);
+  background-color: var(--bg-second-color);
   padding: 1rem;
   display: flex;
+  justify-content: center;
   gap: 3rem;
-  border-radius: 2rem;
   z-index: 50;
+  @media (max-width: 500px) {
+    gap: 2rem;
+  } 
 
   &__icons {
-    color: $fourth-color;
+    color: grey;
     font-size: 2rem;
     transition: all 0.4s ease;
     &.active {
-      color: $fifth-color;
+      color: var(--main-color);
     }
     @media (any-hover: hover) {
       &:hover {
-        color: $fifth-color;
+        color: var(--main-color);
       }
     }
   }

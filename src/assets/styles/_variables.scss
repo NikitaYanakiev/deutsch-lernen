@@ -1,53 +1,78 @@
-$main-color: #cbcaec;
-$second-color:#151544;
-$third-color: #ffffff;
-$fourth-color: #f2f1f4;
-$fourth-color-hover: #e0e0e0;
-$fifth-color:#ffdb74;
+:root {
+  --bg-main-color: #f2f0fe;
+  --bg-second-color: #ffffff;
+  --bg-second-color-hover: #e0ddff;
 
-$list-bg: #fff;
+  --main-color: #4c3d9c;
+  --light-main-color: #6055a1;
 
-$text-light: #fff;
-$text-dark: #151544;
+  --text-light: #ffffff;
+  --text-dark: #1d1b20;
+  --text-sub: #666;
 
-$bar-bg-color: #d9d8e9;
-$bar-progress-color:#ffdb74;
+  --bar-bg-color: #e6e6e6;
+  --bar-progress-color: #ffdb74;
 
-$card-front-color: #ffdb74;
-$card-front-text: #000;
-$card-shadow:rgba(0, 0, 0, 0.2);
-$card-back-color:#74c3ff;
-$card-back-text:#fff;
+  --stamp-bg: rgba(255, 255, 255, 0.8);
 
-$achievements-bg: #fff;
-$achievements-bg-unlocked: #c8e6c9;
-$achievements-circle: #e0e0e0;
-$achievements-progress: #4caf50;
-$achievements-text: #333;
-$achievements-description: #666;
+  --overlay: rgba(255, 255, 255, 0.7);
 
-$correct-color: green;
-$error-color: red;
-$error-color-span:rgb(88, 0, 0);
-$error-bg-color: rgb(250, 165, 165);
+  --card-front-color: #ffdb74;
+  --card-front-text: #1d1b20;
+  --card-back-color: #74c3ff;
+  --card-back-text: #ffffff;
 
-$btn-reset: #eb7f03;
-$btn-reset-shadow:#864802;
+  --correct-color: green;
+  --error-color: red;
+  --error-color-span: rgb(88, 0, 0);
+  --error-bg-color: rgb(250, 165, 165);
 
-$btn-back: #4c6ef5;
-$btn-back-shadow: #273779;
+  --btn-reset: #eb7f03;
+  --btn-reset-shadow: #864802;
 
-$btn-yes: #388e3c;
-$btn-yes-shadow: #275f28;
+  --btn-yes: #388e3c;
+  --btn-yes-shadow: #275f28;
 
-$btn-no: #ff4b4b;
-$btn-no-shadow: #803535;
+  --btn-no: #ff4b4b;
+  --btn-no-shadow: #803535;
 
-$btn-der: rgb(89, 89, 248);
-$btn-der-shadow: rgb(55, 55, 148);
+  --btn-der: rgb(89, 89, 248);
+  --btn-der-shadow: rgb(55, 55, 148);
 
-$btn-das: rgb(62, 150, 62);
-$btn-das-shadow: rgb(33, 81, 33);
+  --btn-das: rgb(62, 150, 62);
+  --btn-das-shadow: rgb(33, 81, 33);
 
-$btn-die: rgb(206, 78, 78);
-$btn-die-shadow: rgb(96, 37, 37);
+  --btn-die: rgb(206, 78, 78);
+  --btn-die-shadow: rgb(96, 37, 37);
+}
+
+[data-theme='dark'] {
+  --bg-main-color: #1e1e2f;
+  --bg-second-color: #2e2e3e;
+  --bg-second-color-hover: #1f1f2c;
+
+
+  --main-color: #cfcaff;
+  --light-main-color: #e0ddff;
+
+  --text-light: #1d1b20;
+  --text-dark: #ffffff;
+  --text-sub: #999;
+
+  --bar-bg-color: #3a3a4a;
+  --bar-progress-color: #ffdb74;
+
+  --stamp-bg: rgba(0, 0, 0, 0.4);
+  
+  --overlay: rgba(0, 0, 0, 0.2);
+
+  --card-front-color: #3b3b5c;
+  --card-front-text: #ffffff;
+  --card-back-color: #2b6e89;
+  --card-back-text: #ffffff;
+
+  --correct-color: #66bb6a;
+  --error-color: #ef5350;
+  --error-color-span: #882827;
+  --error-bg-color: #ffcccb;
+}

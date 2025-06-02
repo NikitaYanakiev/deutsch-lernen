@@ -1,10 +1,10 @@
 import React from "react";
-import Levels from "./LevelsPage/LevelsPage";
+import HomePage from "./HomePage/HomePage";
 
 const MainPage = () => {
   return (
     <div>
-      <Levels />
+      <HomePage/>
     </div>
   );
 };

@@ -1,84 +1,22 @@
 @import "../../assets/styles/variables";
 
 .flashcard-game {
-  text-align: center;
-  padding: 0.8rem 1rem;
   font-family: "Montserrat", "Roboto", sans-serif;
-  padding-bottom: 8rem;
-  &__header {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    align-items: center;
-    margin-bottom: 2rem;
-    font-size: 1.2rem;
-    font-weight: bold;
-
-    @media (max-width: 768px) {
-      grid-template-columns: 1fr;
-      font-size: 1rem;
-    }
-  }
-
-  &__back {
-    width: 3rem;
-    height: 3rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: none;
-    border: 1px solid $second-color;
-    font-size: 1.2rem;
-    font-weight: bold;
-    cursor: pointer;
-    padding: 0.6rem 0.8rem;
-    border-radius: 50%;
-    transition: all 0.4s ease;
-    text-decoration: none;
-    color: $second-color;
-
-    @media (any-hover: hover) {
-      &:hover {
-        background: $second-color;
-        color: $third-color;
-      }
-    }
-  }
-
-  &__title {
-    font-size: 1.4rem;
-    font-weight: bold;
-    color: $text-dark;
-    text-align: center;
-
-    @media (max-width: 768px) {
-      font-size: 1.2rem;
-    }
-  }
-
-  &__counter {
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: $text-dark;
-    text-align: right;
-
-    @media (max-width: 768px) {
-      font-size: 1rem;
-      text-align: center;
-      margin-top: 0.5rem;
-    }
-  }
+  text-align: center;
+  padding: 120px 1rem;
+  min-height: 100vh;
+  background-color: var(--bg-main-color);
 
   .flashcard-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 0 auto;
   }
 
   .flashcard {
     width: 320px;
     height: 220px;
-    background: $card-front-color;
+    background: var(--card-front-color);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -89,8 +27,6 @@
     position: relative;
     transform-style: preserve-3d;
     transition: transform 0.5s ease-in-out;
-    box-shadow: 0 4px 8px $card-shadow;
-
     &.flipped {
       transform: rotateY(180deg);
     }
@@ -106,14 +42,28 @@
       justify-content: center;
       border-radius: 12px;
       padding: 1rem;
+      color: var(--card-front-text);
     }
 
     &__back {
-      background: $card-back-color;
-      box-shadow: 0 4px 8px $card-shadow;
-
-      color: $card-back-text;
+      background: var(--card-back-color);
+      color: var(--card-back-text);
       transform: rotateY(180deg);
+    }
+
+    &__sound-btn {
+      margin-top: 1rem;
+      transition: opacity 0.3s ease;
+
+      &.disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+    }
+
+    &__sound-icon {
+      font-size: 2rem;
+      color: var(--main-color);
     }
 
     @media (max-width: 768px) {
@@ -126,7 +76,7 @@
   .buttons {
     display: flex;
     gap: 1rem;
-    margin-top: 2rem;
+    margin-top: 1rem;
     justify-content: center;
 
     .btn {
@@ -137,37 +87,34 @@
       border-radius: 8px;
       cursor: pointer;
       transition: all 0.3s ease;
-      &--no {
-        background: $btn-no;
-        box-shadow: $btn-no-shadow 0px 7px 0px 0px;
-        color: white;
 
-        @media (any-hover: hover) {
-          &:hover {
-            box-shadow: $btn-no-shadow 0px 5px 0px 0px;
-          }
+      &--no {
+        background: var(--btn-no);
+        color: white;
+        box-shadow: var(--btn-no-shadow) 0px 7px 0px 0px;
+
+        &:hover {
+          box-shadow: var(--btn-no-shadow) 0px 5px 0px 0px;
         }
+
         &:active {
-          box-shadow: $btn-no-shadow 0px 0px 0px 0px;
           transform: translateY(5px);
-          transition: 200ms;
+          box-shadow: none;
         }
       }
 
       &--yes {
-        background: $btn-yes;
-        box-shadow: $btn-yes-shadow 0px 7px 0px 0px;
+        background: var(--btn-yes);
         color: white;
+        box-shadow: var(--btn-yes-shadow) 0px 7px 0px 0px;
 
-        @media (any-hover: hover) {
         &:hover {
-          box-shadow: $btn-yes-shadow 0px 5px 0px 0px;
+          box-shadow: var(--btn-yes-shadow) 0px 5px 0px 0px;
         }
-      }
+
         &:active {
-          box-shadow: $btn-yes-shadow 0px 0px 0px 0px;
           transform: translateY(5px);
-          transition: 200ms;
+          box-shadow: none;
         }
       }
     }
@@ -178,125 +125,94 @@
   }
 
   .btn-reset {
-    margin-top: 5rem;
+    margin-top: 2rem;
     padding: 10px 20px;
+    font-size: 1rem;
+    background-color: var(--btn-reset);
+    color: white;
+    border-radius: 10px;
     border: none;
     cursor: pointer;
-    border-radius: 10px;
-    font-size: 1rem;
-    background-color: $btn-reset;
-    box-shadow: $btn-reset-shadow 0px 7px 0px 0px;
+    box-shadow: var(--btn-reset-shadow) 0px 7px 0px 0px;
 
-    color: white;
-    transition: all 0.3s ease;
-    @media (any-hover: hover) {
     &:hover {
-      box-shadow: $btn-reset-shadow 0px 5px 0px 0px;
+      box-shadow: var(--btn-reset-shadow) 0px 5px 0px 0px;
     }
-  }
+
     &:active {
-      box-shadow: $btn-reset-shadow 0px 0px 0px 0px;
       transform: translateY(5px);
-      transition: 200ms;
-    }
-  }
-
-  @media (max-width: 768px) {
-    padding: 1rem 1rem 8rem 1rem;
-
-    .flashcard-game__header {
-      grid-template-columns: 1fr;
-    }
-
-    .flashcard-game__counter {
-      font-size: 1rem;
-      text-align: center;
+      box-shadow: none;
     }
   }
 }
 
-.finish {
-  padding: 0.8rem 1rem;
-}
+.finish-cards {
+  padding: 100px 1rem;
+  min-height: 100vh;
+  background-color: var(--bg-main-color);
 
-.game-finished {
-  text-align: center;
-  margin-top: 3rem;
-  padding: 2rem;
-  background: $list-bg;
-  box-shadow: 0 4px 10px $card-shadow;
-  border-radius: 1.5rem;
-  max-width: 500px;
-  margin-left: auto;
-  margin-right: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  &__container {
+    padding: 2rem;
+    max-width: 300px;
+    margin: 0 auto;
+    background-color: var(--bg-second-color);
+    border-radius: 32px;
+    text-align: center;
+
+    @media (max-width: 768px) {
+      max-width: 90%;
+    }
+  }
+
+  &__img {
+    max-width: 200px;
+    margin: 0 auto;
+
+    img {
+      width: 100%;
+      display: block;
+    }
+  }
 
   &__title {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     font-weight: bold;
-    color: $text-dark;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--text-dark);
   }
 
-  &__back,
-  &__reset {
-    padding: 0.8rem 1.5rem;
+  &__subtitle {
     font-size: 1rem;
-    font-weight: bold;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.3s ease, transform 0.2s ease;
-    width: 100%;
-    max-width: 300px;
-    margin: 0.5rem 0;
+    font-weight: 500;
+    line-height: 1.2rem;
+    margin-bottom: 1rem;
+    color: var(--text-dark);
   }
 
-  &__back {
-    background: $btn-back;
-    color: $text-light;
-    box-shadow: $btn-back-shadow 0px 7px 0px 0px;
-    @media (any-hover: hover) {
-    &:hover {
-      box-shadow: $btn-back-shadow 0px 5px 0px 0px;
-    }
+  &__btns {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
   }
-    &:active {
-      box-shadow: $btn-back-shadow 0px 0px 0px 0px;
-      transform: translateY(5px);
-      transition: 200ms;
-    }
+
+  &__continue {
+    width: 200px;
+    padding: 1rem;
+    border-radius: 16px;
+    background-color: var(--main-color);
+    color: var(--bg-second-color);
   }
 
   &__reset {
-    background: $btn-reset;
-    color: $text-light;
-    box-shadow: $btn-reset-shadow 0px 7px 0px 0px;
-    @media (any-hover: hover) {
-    &:hover {
-      box-shadow: $btn-reset-shadow 0px 5px 0px 0px;
-    }
-  }
-    &:active {
-      box-shadow: $btn-reset-shadow 0px 0px 0px 0px;
-      transform: translateY(5px);
-      transition: 200ms;
-    }
-  }
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+    color: var(--main-color);
 
-  @media (max-width: 768px) {
-    max-width: 90%;
-    padding: 1.5rem;
-
-    &__title {
-      font-size: 1.4rem;
-    }
-
-    &__back,
-    &__reset {
-      font-size: 0.9rem;
+    &-icon {
+      margin-left: 0.5rem;
+      font-size: 1.2rem;
     }
   }
 }
