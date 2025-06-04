@@ -1,5 +1,5 @@
 import React, { useEffect } from "react"; 
-import { HashRouter , Route, Routes, Navigate } from "react-router-dom";
+import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import MainPage from "../../pages/MainPage";
 import LessonsPage from "../../pages/LessonsPage/LessonsPage";
 import FlashcardGame from "../../pages/FlashcardGame/FlashcardGame";
@@ -30,7 +30,7 @@ function App() {
 
   return (
     <div className="App">
-      <HashRouter >
+      <BrowserRouter basename="/deutsch-lernen">
         <ScrollToTop />
         <Routes>
           <Route
@@ -73,7 +73,7 @@ function App() {
           <Route path="/game/combo-by-image" element={<ComboByImageGame />} />
           <Route path="/profile" element={<ProfilePage />} />
         </Routes>
-      </HashRouter>
+      </BrowserRouter>
     </div>
   );
 }
