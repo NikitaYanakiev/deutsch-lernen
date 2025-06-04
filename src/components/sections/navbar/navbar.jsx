@@ -14,8 +14,8 @@ const Navbar = () => {
 
   const isActive = (section) => {
     switch (section) {
-      case "/deutsch-lernen":
-        return currentPath === "/deutsch-lernen" || currentPath.startsWith("/a1") || currentPath.startsWith("/a2") || currentPath.startsWith("/b1");
+      case "/":
+        return currentPath === "/" || currentPath.startsWith("/a1") || currentPath.startsWith("/a2") || currentPath.startsWith("/b1");
       case "/dictionary":
         return currentPath.startsWith("/dictionary") || currentPath.startsWith("/learn");
       case "/game":
@@ -34,8 +34,8 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <Link
-        to="/deutsch-lernen"
-        className={`navbar__icons ${isActive("/deutsch-lernen") ? "active" : ""}`}
+        to="/"
+        className={`navbar__icons ${isActive("/") ? "active" : ""}`}
       >
         <AiFillHome />
       </Link>

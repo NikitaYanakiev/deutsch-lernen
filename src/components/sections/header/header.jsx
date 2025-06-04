@@ -20,7 +20,7 @@ const Header = ({ progress }) => {
     }
 
     if (["/a1", "/a2", "/b1"].includes(path)) {
-      navigate("/deutsch-lernen");
+      navigate("/");
       return;
     }
 

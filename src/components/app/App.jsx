@@ -34,7 +34,7 @@ function App() {
         <ScrollToTop />
         <Routes>
           <Route
-            path="/deutsch-lernen"
+            path="/"
             element={
               userLanguage ? (
                 userName ? (
