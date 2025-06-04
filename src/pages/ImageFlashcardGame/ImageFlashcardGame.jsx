@@ -9,10 +9,12 @@ import finishImg from "../../assets/icons/finish.png";
 import { FiRefreshCcw } from "react-icons/fi";
 import { FaVolumeHigh } from "react-icons/fa6";
 import { MdTouchApp } from "react-icons/md";
+import { useTranslation } from "react-i18next";
 
 import "./ImageFlashcardGame.scss";
 
 const ImageFlashcardGame = () => {
+  const { t, i18n } = useTranslation();
   const { setId } = useParams();
   const navigate = useNavigate();
   const setData = vocabluaryData[setId]?.words || [];
@@ -35,7 +37,7 @@ const ImageFlashcardGame = () => {
   }, [setId, setData]);
 
   const handleSpeak = () => {
-    if (isSpeaking) return; // блокировка спама
+    if (isSpeaking) return;
     speakGerman(
       currentCard.de,
       () => setIsSpeaking(true),
@@ -101,19 +103,19 @@ const ImageFlashcardGame = () => {
         />
         <div className="finish-cards__container">
           <img src={finishImg} alt="Finish" className="finish-cards__img" />
-          <h2 className="finish-cards__title">Great Job!</h2>
+          <h2 className="finish-cards__title">{t("greatJob")}</h2>
           <p className="finish-cards__subtitle">
-            You have learned {learnedWords.length} words!
+            {t("learnedWords", { count: learnedWords.length })}
           </p>
           <div className="finish-cards__btns">
             <button
               className="finish-cards__continue"
               onClick={() => navigate(`/dictionary/${setId}`)}
             >
-              Continue
+              {t("continue")}
             </button>
             <button className="finish-cards__reset" onClick={resetProgress}>
-              Reset Progress
+              {t("resetProgress")}
               <FiRefreshCcw className="finish-cards__reset-icon" />
             </button>
           </div>
@@ -124,6 +126,9 @@ const ImageFlashcardGame = () => {
   }
 
   const currentCard = cards[currentIndex];
+
+  // Выбор перевода по текущему языку
+  const translation = currentCard[i18n.language] || currentCard.ru;
 
   return (
     <div className="image-flashcard-game">
@@ -143,12 +148,12 @@ const ImageFlashcardGame = () => {
           </div>
           <div className="image-flashcard-game__card-back">
             <h3>{currentCard.de}</h3>
-            <p>{currentCard.ru}</p>
+            <p>{translation}</p>
           </div>
         </div>
         <button
           onClick={handleSpeak}
-          title="Прослушать"
+          title={t("listen")}
           disabled={isSpeaking}
           className={`image-flashcard-game__sound-btn ${
             isSpeaking ? "disabled" : ""
@@ -158,14 +163,14 @@ const ImageFlashcardGame = () => {
         </button>
         <div className="image-flashcard-game__buttons">
           <button onClick={handleDontKnow} className="btn btn--no">
-            Не знаю
+            {t("dontKnow")}
           </button>
           <button onClick={handleKnow} className="btn btn--yes">
-            Знаю
+            {t("know")}
           </button>
         </div>
         <button onClick={resetProgress} className="image-flashcard-game__reset">
-          Сбросить прогресс
+          {t("reset")}
         </button>
       </div>
       <Navbar />

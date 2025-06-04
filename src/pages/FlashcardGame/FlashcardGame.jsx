@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { speakGerman } from "../../assets/utils/speak";
 
 import Navbar from "../../components/sections/navbar/navbar";
@@ -14,6 +15,7 @@ import finishImg from "../../assets/icons/finish.png";
 import "./flashcardGame.scss";
 
 const FlashcardGame = () => {
+  const { t } = useTranslation();
   const { level, lessonId } = useParams();
   const navigate = useNavigate();
   const words = wordsData[level]?.[lessonId] || [];
@@ -26,12 +28,16 @@ const FlashcardGame = () => {
   );
 
   useEffect(() => {
-    localStorage.setItem(`learned_${level}_${lessonId}`, JSON.stringify(learnedWords));
+    localStorage.setItem(
+      `learned_${level}_${lessonId}`,
+      JSON.stringify(learnedWords)
+    );
 
     let totalWordsLearned = 0;
     Object.entries(wordsData).forEach(([lvl, lessons]) => {
       Object.keys(lessons).forEach((lesson) => {
-        const learned = JSON.parse(localStorage.getItem(`learned_${lvl}_${lesson}`)) || [];
+        const learned =
+          JSON.parse(localStorage.getItem(`learned_${lvl}_${lesson}`)) || [];
         totalWordsLearned += learned.length;
       });
     });
@@ -72,7 +78,9 @@ const FlashcardGame = () => {
     setFlipped(false);
     setCards((prevCards) => {
       if (prevCards.length <= 1) return prevCards;
-      return isKnown ? prevCards.slice(1) : [...prevCards.slice(1), prevCards[0]];
+      return isKnown
+        ? prevCards.slice(1)
+        : [...prevCards.slice(1), prevCards[0]];
     });
   };
 
@@ -100,21 +108,26 @@ const FlashcardGame = () => {
   if (learnedWords.length === words.length && words.length > 0) {
     return (
       <div className="finish-cards">
-        <Header progress={{ completed: learnedWords.length, total: words.length }} />
+        <Header
+          progress={{ completed: learnedWords.length, total: words.length }}
+        />
         <div className="finish-cards__container">
           <div className="finish-cards__img">
             <img src={finishImg} alt="finish" />
           </div>
-          <h2 className="finish-cards__title">Great Job!</h2>
+          <h2 className="finish-cards__title">{t("flashcard_finish.title")}</h2>
           <p className="finish-cards__subtitle">
-            You have learned {learnedWords.length} new words
+            {t("flashcard_finish.subtitle", { count: learnedWords.length })}
           </p>
           <div className="finish-cards__btns">
-            <button className="finish-cards__continue" onClick={() => navigate(`/${level}`)}>
-              Continue
+            <button
+              className="finish-cards__continue"
+              onClick={() => navigate(`/${level}`)}
+            >
+              {t("flashcard_finish.continue")}
             </button>
             <button className="finish-cards__reset" onClick={resetProgress}>
-              Reset Progress
+              {t("flashcard_finish.reset")}
               <FiRefreshCcw className="finish-cards__reset-icon" />
             </button>
           </div>
@@ -126,12 +139,32 @@ const FlashcardGame = () => {
 
   return (
     <div className="flashcard-game">
-      <Header progress={{ completed: learnedWords.length, total: words.length }} />
+      <Header
+        progress={{ completed: learnedWords.length, total: words.length }}
+      />
       {cards.length > 0 ? (
         <div className="flashcard-container">
-          <div className={`flashcard ${flipped ? "flipped" : ""}`} onClick={handleFlip}>
+          <div
+            className={`flashcard ${flipped ? "flipped" : ""}`}
+            onClick={handleFlip}
+          >
             <div className="flashcard__front">{cards[0]?.de}</div>
-            <div className="flashcard__back">{cards[0]?.ru}</div>
+            <div className="flashcard__back">
+              {(() => {
+                const lang = localStorage.getItem("i18nextLng");
+                const word = cards[0];
+                switch (lang) {
+                  case "ru":
+                    return word?.ru;
+                  case "en":
+                    return word?.en;
+                  case "ua":
+                    return word?.ua;
+                  default:
+                    return word?.ru;
+                }
+              })()}
+            </div>
           </div>
           <button
             onClick={handleSpeak}
@@ -142,14 +175,20 @@ const FlashcardGame = () => {
             <FaVolumeHigh className="flashcard__sound-icon" />
           </button>
           <div className="buttons">
-            <button className="btn btn--no" onClick={handleDontKnow}>Не знаю</button>
-            <button className="btn btn--yes" onClick={handleKnow}>Знаю</button>
+            <button className="btn btn--no" onClick={handleDontKnow}>
+              {t("dontKnow")}
+            </button>
+            <button className="btn btn--yes" onClick={handleKnow}>
+              {t("know")}
+            </button>
           </div>
         </div>
       ) : (
         <h2>Нет слов для этой лекции</h2>
       )}
-      <button onClick={resetProgress} className="btn-reset">Сбросить прогресс</button>
+      <button onClick={resetProgress} className="btn-reset">
+        {t("reset")}
+      </button>
       <Navbar />
     </div>
   );

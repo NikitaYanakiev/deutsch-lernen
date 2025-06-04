@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import { IoMdCheckmark } from "react-icons/io";
 import { IoIosBackspace } from "react-icons/io";
 import vocabluaryData from "../../../../data/vocabluary";
@@ -35,6 +36,7 @@ const generateLetterPool = (word, extraCount = 4) => {
 };
 
 const CollectByImageGame = () => {
+  const { t } = useTranslation();
   const [selectedSetId, setSelectedSetId] = useState(null);
   const [wordsQueue, setWordsQueue] = useState([]);
   const [currentWord, setCurrentWord] = useState(null);
@@ -50,8 +52,6 @@ const CollectByImageGame = () => {
   useEffect(() => {
     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(completedSets));
   }, [completedSets]);
-
- 
 
   useEffect(() => {
     if (selectedSetId && vocabluaryData[selectedSetId]) {
@@ -102,7 +102,6 @@ const CollectByImageGame = () => {
       [setId]: true,
     }));
   };
-  
 
   const handleLetterClick = (item) => {
     const nextIndex = currentWord.de
@@ -173,7 +172,7 @@ const CollectByImageGame = () => {
     <section className="collect-game">
       <Header />
       {wrongAnswer && (
-        <div className="collect-game__toast">The answer is not correct</div>
+        <div className="collect-game__toast">{t("collectGame_toast")}</div>
       )}
 
       {!selectedSetId ? (
@@ -194,13 +193,13 @@ const CollectByImageGame = () => {
           <div className="collect-game__img">
             <img src={finishImg} alt="finish" />
           </div>
-          <h2 className="collect-game__title">Great job!</h2>
-          <p className="collect-game__subtitle">You collected all the words</p>
+          <h2 className="collect-game__title">{t("collectGame_finish_title")}</h2>
+          <p className="collect-game__subtitle">{t("collectGame_finish_subtitle")}</p>
           <div className="collect-game__result">
-            Completed words: <span>{correctAnswers.length}</span>
+          {t("collectGame_finish_result")} <span>{correctAnswers.length}</span>
           </div>
           <button className="collect-game__finish-btn" onClick={resetProgress}>
-            Choose another set
+          {t("collectGame_finish_button")}
           </button>
         </div>
       ) : (

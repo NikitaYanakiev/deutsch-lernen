@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import Navbar from "../../components/sections/navbar/navbar";
 import Header from "../../components/sections/header/header";
 import wordsData from "../../data/words.json";
@@ -10,6 +11,7 @@ import finishImg from "../../assets/icons/finish.png";
 import confetti from "canvas-confetti";
 
 const ArticlesGame = () => {
+  const { t } = useTranslation();
   const { level, lessonId } = useParams();
   const navigate = useNavigate();
   const words =
@@ -101,25 +103,28 @@ const ArticlesGame = () => {
           <div className="finish-articles__img">
             <img src={finishImg} alt="finish" />
           </div>
-          <h2 className="finish-articles__title">Great job!</h2>
+          <h2 className="finish-articles__title">
+            {t("articlesGame_finish.title")}
+          </h2>
           <p className="finish-articles__subtitle">
-            You have learned new articles
+            {t("articlesGame_finish.subtitle")}
           </p>
           <div className="finish-articles__result">
-            <span>Completed words:</span> {correctCount}
+            <span>{t("articlesGame_finish.result")}:</span> {correctCount}
           </div>
           <div className="finish-articles__mistakes">
-            <span>Mistakes:</span> {wrongWords.length} from {correctCount}
+            <span>{t("articlesGame_finish.mistakes")}:</span>{" "}
+            {wrongWords.length} {t("of")} {correctCount}
           </div>
           <div className="finish-articles__btns">
             <button
               className="finish-articles__continue"
               onClick={() => navigate(`/${level}`)}
             >
-              Continue
+              {t("articlesGame_finish.continue")}
             </button>
             <button className="finish-articles__reset" onClick={resetProgress}>
-              Reset Progress
+              {t("articlesGame_finish.reset")}
               <FiRefreshCcw className="finish-articles__reset-icon" />
             </button>
           </div>
@@ -158,7 +163,22 @@ const ArticlesGame = () => {
                   )}
                 </span>
               </div>
-              <div className="game-card-back">{cards[0].ru}</div>
+              <div className="game-card-back">
+                {(() => {
+                  const lang = localStorage.getItem("i18nextLng");
+                  const word = cards[0];
+                  switch (lang) {
+                    case "ru":
+                      return word?.ru;
+                    case "en":
+                      return word?.en;
+                    case "ua":
+                      return word?.ua;
+                    default:
+                      return word?.ru;
+                  }
+                })()}
+              </div>
             </div>
           </div>
 
@@ -185,16 +205,16 @@ const ArticlesGame = () => {
 
           {showFeedback && (
             <p className="game-error">
-              Неверно! Правильный артикль: <span>{cards[0].article}</span>
+              {t("articlesGame__incorrect")}: <span>{cards[0].article}</span>
             </p>
           )}
         </div>
       ) : (
-        <h2>Нет слов для этой лекции</h2>
+        <h2>{t("noLecture")}</h2>
       )}
 
       <button onClick={resetProgress} className="game-reset">
-        Сбросить прогресс
+        {t("articlesGame_finish.reset")}
       </button>
 
       <Navbar />

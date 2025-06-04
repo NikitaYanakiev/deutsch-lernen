@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
+
 import { IoMdCheckmark } from "react-icons/io";
 import vocabluaryData from "../../../../data/vocabluary";
 import Header from "../../../sections/header/header";
@@ -20,6 +22,7 @@ const getCompletedSetsFromStorage = () => {
 };
 
 const WriteByImageGame = () => {
+  const { t } = useTranslation();
   const [selectedSetId, setSelectedSetId] = useState(null);
   const [wordsQueue, setWordsQueue] = useState([]);
   const [currentWord, setCurrentWord] = useState(null);
@@ -144,13 +147,13 @@ const WriteByImageGame = () => {
             <img src={finishImg} alt="finish" />
           </div>
 
-          <h2 className="write-game__title">Great job!</h2>
-          <p className="write-game__subtitle">You have learned new words</p>
+          <h2 className="write-game__title">{t("writeGame_finish_title")}</h2>
+          <p className="write-game__subtitle">{t("writeGame_finish_subtitle")}</p>
           <div className="write-game__result">
-            Completed words: <span>{correctAnswers.length}</span>
+          {t("writeGame_finish_result")}: <span>{correctAnswers.length}</span>
           </div>
           <button onClick={resetProgress} className="write-game__finish-btn">
-            Choose another set
+          {t("Choose another set")}
           </button>
         </div>
       ) : (
@@ -196,18 +199,18 @@ const WriteByImageGame = () => {
             />
             {!showAnswer ? (
               <button type="submit" className="write-game__button">
-                Check
+                {t("writeGame_check")}
               </button>
             ) : (
               <button onClick={handleNext} className="write-game__button">
-                Next
+                {t("writeGame_next")}
               </button>
             )}
           </form>
 
           {wrongAnswer && (
             <div className="write-game__toast">
-              Incorrect! Check the answer.
+              {t("writeGame_toast")}
             </div>
           )}
         </div>

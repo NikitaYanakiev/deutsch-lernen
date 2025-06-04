@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import vocabluaryData from "../../data/vocabluary";
 import WordCard from "../../components/common/dictionary/WordCard";
 import Header from "../../components/sections/header/header";
@@ -7,6 +8,7 @@ import Navbar from "../../components/sections/navbar/navbar";
 import "./SetPage.scss";
 
 const SetPage = () => {
+  const { t, i18n } = useTranslation();
   const { setId } = useParams();
   const navigate = useNavigate();
   const rawSetData = vocabluaryData[setId];
@@ -49,24 +51,27 @@ const SetPage = () => {
     loadWords(); // обновим состояние
   };
 
-  if (!rawSetData) return <div>Сет не найден</div>;
+  if (!rawSetData) return <div>{t("setNotFound")}</div>;
+
+  const translatedSetName = t(`topics.${setId}`);
 
   return (
     <section className="set-page">
       <Header />
+
       <div className="set-page__subheader">
-        <h2 className="set-page__title">{setId}</h2>
+        <h2 className="set-page__title">{translatedSetName}</h2>
 
         <div className="set-page__subheader-btns">
           <button
             onClick={() => navigate(`/learn/${setId}`)}
             className="set-page__btn-learn"
           >
-            Учить
+            {t("learnButton")}
           </button>
 
           <button onClick={resetSet} className="set-page__btn-reset">
-            Сбросить
+            {t("resetButton")}
           </button>
         </div>
       </div>
@@ -75,13 +80,18 @@ const SetPage = () => {
         {words.map((word, index) => (
           <WordCard
             key={index}
-            {...word}
-            setId={setId}
+            de={word.de}
+            ru={word.ru}
+            en={word.en}
+            ua={word.ua}
+            image={word.image}
             learned={word.learned}
+            setId={setId}
             onToggle={() => toggleLearned(index)}
           />
         ))}
       </div>
+
       <Navbar />
     </section>
   );

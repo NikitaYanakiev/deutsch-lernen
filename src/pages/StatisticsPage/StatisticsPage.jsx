@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import wordsData from "../../data/words.json";
 import Navbar from "../../components/sections/navbar/navbar";
 import Header from "../../components/sections/header/header";
@@ -14,6 +15,7 @@ import avatarImg from "../../assets/img/achievements/avatar.png";
 import "./StatisticsPage.scss";
 
 const StatisticsPage = () => {
+  const { t } = useTranslation();
   const [words, setWords] = useState(0);
   const [lessons, setLessons] = useState(0);
   const [sets, setSets] = useState(0);
@@ -63,44 +65,54 @@ const StatisticsPage = () => {
   const updateCompletedLessons = () => {
     const levels = Object.keys(wordsData);
     let completedLessons = [];
-  
+
     levels.forEach((level) => {
       const lessons = Object.keys(wordsData[level] || {});
       lessons.forEach((lessonId) => {
         const learnedFlashcards =
-          JSON.parse(localStorage.getItem(`learned_${level}_${lessonId}`)) || [];
+          JSON.parse(localStorage.getItem(`learned_${level}_${lessonId}`)) ||
+          [];
         const learnedArticles =
-          JSON.parse(localStorage.getItem(`learned_articles_${level}_${lessonId}`)) || [];
+          JSON.parse(
+            localStorage.getItem(`learned_articles_${level}_${lessonId}`)
+          ) || [];
         const lessonWords = wordsData[level][lessonId] || [];
-  
+
         const totalWords = lessonWords.length;
         const wordsWithArticles = lessonWords.filter((word) => word.article);
         const totalWordsWithArticles = wordsWithArticles.length;
-  
+
         const flashcardsProgress =
-          totalWords > 0 ? Math.round((learnedFlashcards.length / totalWords) * 100) : 0;
+          totalWords > 0
+            ? Math.round((learnedFlashcards.length / totalWords) * 100)
+            : 0;
         const articlesProgress =
           totalWordsWithArticles > 0
-            ? Math.round((learnedArticles.length / totalWordsWithArticles) * 100)
+            ? Math.round(
+                (learnedArticles.length / totalWordsWithArticles) * 100
+              )
             : 0;
-  
-        const totalProgressParts = (totalWords > 0 ? 1 : 0) + (totalWordsWithArticles > 0 ? 1 : 0);
+
+        const totalProgressParts =
+          (totalWords > 0 ? 1 : 0) + (totalWordsWithArticles > 0 ? 1 : 0);
         const progress =
           totalProgressParts > 0
-            ? Math.round((flashcardsProgress + articlesProgress) / totalProgressParts)
+            ? Math.round(
+                (flashcardsProgress + articlesProgress) / totalProgressParts
+              )
             : 0;
-  
+
         if (progress === 100) {
           completedLessons.push(`${level}_${lessonId}`);
         }
       });
     });
-  
+
     localStorage.setItem("completedLessons", JSON.stringify(completedLessons));
   };
 
   useEffect(() => {
-    updateCompletedLessons(); 
+    updateCompletedLessons();
 
     const completedLessonsRaw = localStorage.getItem("completedLessons");
     let totalLessons = 0;
@@ -194,7 +206,7 @@ const StatisticsPage = () => {
     return { level, progress: value, next: thresholds[thresholds.length - 1] };
   };
 
-  const progressMax = 16; 
+  const progressMax = 16;
   const progressValue = (lessons / progressMax) * 100;
   return (
     <section className="statistics">
@@ -236,7 +248,7 @@ const StatisticsPage = () => {
 
         <div className="statistics__panel">
           <div className="statistics__panel-item">
-            <p className="statistics__panel-title">Выучено слов</p>
+            <p className="statistics__panel-title">{t("wordsLearned")}</p>
             <div className="statistics__panel-data">
               <TbCards className="statistics__panel-icon statistics__panel-icon-words" />
               <span className="statistics__panel-counter">{words}</span>
@@ -244,7 +256,7 @@ const StatisticsPage = () => {
           </div>
 
           <div className="statistics__panel-item">
-            <p className="statistics__panel-title">Пройдено уроков</p>
+            <p className="statistics__panel-title">{t("lessonsCompleted")}</p>
             <div className="statistics__panel-data">
               <RiGraduationCapLine className="statistics__panel-icon statistics__panel-icon-lessons" />
               <span className="statistics__panel-counter">{lessons}</span>
@@ -252,7 +264,7 @@ const StatisticsPage = () => {
           </div>
 
           <div className="statistics__panel-item">
-            <p className="statistics__panel-title">Выучено сетов</p>
+            <p className="statistics__panel-title">{t("setsLearned")}</p>
             <div className="statistics__panel-data">
               <LuBookOpenCheck className="statistics__panel-icon statistics__panel-icon-sets" />
               <span className="statistics__panel-counter">{sets}</span>
@@ -260,7 +272,7 @@ const StatisticsPage = () => {
           </div>
         </div>
 
-        <h2 className="statistics__title">Achievements</h2>
+        <h2 className="statistics__title">{t("achievements")}</h2>
         <div className="statistics__achievements">
           {(showAllAchievements ? achievements : achievements.slice(0, 3)).map(
             ({ title, icon, thresholds, value, description }) => {
@@ -286,7 +298,7 @@ const StatisticsPage = () => {
                   <div className="statistics__achievements-content">
                     <div className="statistics__achievements-header">
                       <div className="statistics__achievements-title">
-                        {title}
+                        {t(title)}
                       </div>
                       <div className="statistics__achievements-count">
                         {value}/{next}
@@ -302,7 +314,7 @@ const StatisticsPage = () => {
                       </div>
                     </div>
                     <div className="statistics__achievements-desc">
-                      {description}
+                      {t(`${title}_desc`)}
                     </div>
                   </div>
                 </div>
@@ -315,7 +327,7 @@ const StatisticsPage = () => {
               className="statistics__achievements-btn"
               onClick={() => setShowAllAchievements(true)}
             >
-              View all
+              {t("viewAll")}
             </div>
           )}
         </div>

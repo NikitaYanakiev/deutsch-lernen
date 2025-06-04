@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import "./GameCenterPage.scss";
 import Header from "../../components/sections/header/header";
 import Navbar from "../../components/sections/navbar/navbar";
@@ -10,13 +11,14 @@ import comboImg from "../../assets/img/games/combo-word.png";
 
 const GameCenterPage = () => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   return (
-    <section class="game-center">
+    <section className="game-center">
       <Header />
 
       <div className="game-center__container">
-        <h1 className="game-center__title">Games:</h1>
+        <h1 className="game-center__title">{t("games.title")}</h1>
         <div className="game-center__list">
           <div
             className="game-center__card"
@@ -26,10 +28,8 @@ const GameCenterPage = () => {
               <img src={guessImg} alt="quiz" />
             </div>
             <div className="game-center__card-info">
-              <h2 className="game-center__card-title">Guess by image</h2>
-              <p className="game-center__card-descr">
-                Choose right answer by image
-              </p>
+              <h2 className="game-center__card-title">{t("games.guess.title")}</h2>
+              <p className="game-center__card-descr">{t("games.guess.desc")}</p>
             </div>
           </div>
 
@@ -41,26 +41,24 @@ const GameCenterPage = () => {
               <img src={collectWord} alt="collect" />
             </div>
             <div className="game-center__card-info">
-              <h2 className="game-center__card-title">Collect by image</h2>
-              <p className="game-center__card-descr">
-                Build the word from letters by image
-              </p>
+              <h2 className="game-center__card-title">{t("games.collect.title")}</h2>
+              <p className="game-center__card-descr">{t("games.collect.desc")}</p>
             </div>
           </div>
+
           <div
             className="game-center__card"
             onClick={() => navigate("/game/write-by-image")}
           >
             <div className="game-center__card-img">
-              <img src={writeWord} alt="quiz" />
+              <img src={writeWord} alt="write" />
             </div>
             <div className="game-center__card-info">
-              <h2 className="game-center__card-title">Write by image</h2>
-              <p className="game-center__card-descr">
-                Write right answer by image
-              </p>
+              <h2 className="game-center__card-title">{t("games.write.title")}</h2>
+              <p className="game-center__card-descr">{t("games.write.desc")}</p>
             </div>
           </div>
+
           <div
             className="game-center__card"
             onClick={() => navigate("/game/combo-by-image")}
@@ -69,14 +67,13 @@ const GameCenterPage = () => {
               <img src={comboImg} alt="combo" />
             </div>
             <div className="game-center__card-info">
-              <h2 className="game-center__card-title">Combo Game</h2>
-              <p className="game-center__card-descr">
-                Three stages: Guess, Collect, Write
-              </p>
+              <h2 className="game-center__card-title">{t("games.combo.title")}</h2>
+              <p className="game-center__card-descr">{t("games.combo.desc")}</p>
             </div>
           </div>
         </div>
       </div>
+
       <Navbar />
     </section>
   );

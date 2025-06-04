@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
+
 import { IoMdCheckmark } from "react-icons/io";
 import vocabluaryData from "../../../../data/vocabluary";
 import Header from "../../../sections/header/header";
@@ -20,6 +22,7 @@ const getCompletedSetsFromStorage = () => {
 };
 
 const GuessByImageGame = () => {
+  const { t } = useTranslation();
   const [selectedSetId, setSelectedSetId] = useState(null);
   const [wordsQueue, setWordsQueue] = useState([]);
   const [currentWord, setCurrentWord] = useState(null);
@@ -127,17 +130,19 @@ const GuessByImageGame = () => {
           <div className="guess-game__img">
             <img src={finishImg} alt="finish" />
           </div>
-          <h2 className="guess-game__title">Great job!</h2>
-          <p className="guess-game__subtitle">You have learned new words</p>
+          <h2 className="guess-game__title">{t("guessGame_finish_title")}</h2>
+          <p className="guess-game__subtitle">
+            {t("guessGame_finish_subtitle")}
+          </p>
           <div className="guess-game__result">
-            <span>Completed words:</span> {correctAnswers.length}
+            <span>{t("guessGame_finish_result")}:</span> {correctAnswers.length}
           </div>
           <div className="guess-game__btns">
             <button
               className="guess-game__continue"
               onClick={handleChooseAnotherSet}
             >
-              Choose another set
+              {t("guessGame_finish_button")}
             </button>
           </div>
         </div>
@@ -182,7 +187,9 @@ const GuessByImageGame = () => {
             </div>
 
             {wrongAnswer && (
-              <div className="guess-game__toast">Это не {wrongAnswer}!</div>
+              <div className="guess-game__toast">
+                {t("guessGame_toast")} {wrongAnswer}!
+              </div>
             )}
           </div>
         </div>

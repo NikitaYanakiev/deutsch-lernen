@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import "./GameSetCard.scss";
 
 const GameSetCard = ({ setId, title, image, storageKey, onClick }) => {
   const [completed, setCompleted] = useState(false);
+  const { t } = useTranslation();
 
   useEffect(() => {
     const saved = JSON.parse(localStorage.getItem(storageKey)) || {};
@@ -29,7 +31,11 @@ const GameSetCard = ({ setId, title, image, storageKey, onClick }) => {
         <img src={image} alt={setId} />
       </div>
       <div className="game-setcard__info">
-        <span className="game-setcard__title">{title}</span>
+        <span className="game-setcard__title">
+          {/* Если title — это ключ перевода: */}
+          {t(`topics.${title}`)}
+          {/* Если title — уже локализованное значение: просто оставь {title} */}
+        </span>
       </div>
 
       <div className="checkbox-wrapper-31" onClick={toggleCompleted}>
@@ -44,7 +50,9 @@ const GameSetCard = ({ setId, title, image, storageKey, onClick }) => {
         </svg>
       </div>
 
-      {completed && <div className="game-setcard__stamp">COMPLETED</div>}
+      {completed && (
+        <div className="game-setcard__stamp">{t("completed")}</div>
+      )}
     </div>
   );
 };

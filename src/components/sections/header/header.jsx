@@ -1,10 +1,12 @@
 import React from "react";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { FaArrowLeft } from "react-icons/fa6";
 
 import "./header.scss";
 
 const Header = ({ progress }) => {
+  const { t } = useTranslation();
   const location = useLocation();
   const navigate = useNavigate();
   const { level, lessonId } = useParams();
@@ -28,31 +30,32 @@ const Header = ({ progress }) => {
   const getTitle = () => {
     const upperLevel = level?.toUpperCase();
 
-    // Если страница режима выбора
     if (location.pathname.match(/^\/[^/]+\/lektion\/[^/]+$/)) {
-      return "Mode";
+      return t("header.mode");
     }
 
-    
     if (location.pathname === "/dictionary") {
-      return "Vocabulary";
+      return t("header.vocabulary");
     }
 
     if (location.pathname === "/game/guess-by-image") {
-      return "Guess word";
+      return t("header.guessWord");
     }
+
     if (location.pathname === "/game/collect-by-image") {
-      return "Collect word";
+      return t("header.collectWord");
     }
+
     if (location.pathname === "/game/write-by-image") {
-      return "Write word";
+      return t("header.writeWord");
     }
+
     if (location.pathname === "/game/combo-by-image") {
-      return "Combo game";
+      return t("header.comboGame");
     }
 
     if (location.pathname === "/game") {
-      return "Game Center";
+      return t("header.gameCenter");
     }
 
     if (
@@ -63,21 +66,27 @@ const Header = ({ progress }) => {
     }
 
     if (location.pathname === "/statistics") {
-      return "Statistics";
+      return t("header.statistics");
     }
 
     if (location.pathname === "/profile") {
-      return "Profile";
+      return t("header.profile");
     }
 
     if (location.pathname.match(/^\/[^/]+$/)) {
-      return `${upperLevel || "Level"}`;
+      return `${upperLevel || t("header.level")}`;
     }
 
     return "";
   };
 
-  const hideBackButton = ["/", "/dictionary", "/statistics", "/game", "/profile"].includes(location.pathname);
+  const hideBackButton = [
+    "/",
+    "/dictionary",
+    "/statistics",
+    "/game",
+    "/profile",
+  ].includes(location.pathname);
 
   return (
     <header className={`header ${hideBackButton ? "header--no-back" : ""}`}>

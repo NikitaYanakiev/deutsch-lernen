@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
+
 import Header from "../../../sections/header/header";
 import Navbar from "../../../sections/navbar/navbar";
 import GameSetCard from "../GameSetCard/GameSetCard";
@@ -38,7 +40,10 @@ const generateLetterPool = (word, extraCount = 4) => {
 };
 
 const ComboByImageGame = () => {
-  const [completedSets, setCompletedSets] = useState(getCompletedSetsFromStorage);
+  const { t } = useTranslation();
+  const [completedSets, setCompletedSets] = useState(
+    getCompletedSetsFromStorage
+  );
   const [selectedSetId, setSelectedSetId] = useState(null);
   const [stage, setStage] = useState(1);
   const [guessWords, setGuessWords] = useState([]);
@@ -56,9 +61,18 @@ const ComboByImageGame = () => {
 
   const totalWordsCount = vocabluaryData[selectedSetId]?.words.length || 0;
 
-  const guessProgress = stage >= 1 ? ((totalWordsCount - guessWords.length) / totalWordsCount) * 100 : 0;
-  const collectProgress = stage >= 2 ? ((totalWordsCount - collectWords.length) / totalWordsCount) * 100 : 0;
-  const writeProgress = stage === 3 ? ((totalWordsCount - writeWords.length) / totalWordsCount) * 100 : 0;
+  const guessProgress =
+    stage >= 1
+      ? ((totalWordsCount - guessWords.length) / totalWordsCount) * 100
+      : 0;
+  const collectProgress =
+    stage >= 2
+      ? ((totalWordsCount - collectWords.length) / totalWordsCount) * 100
+      : 0;
+  const writeProgress =
+    stage === 3
+      ? ((totalWordsCount - writeWords.length) / totalWordsCount) * 100
+      : 0;
 
   useEffect(() => {
     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(completedSets));
@@ -119,7 +133,9 @@ const ComboByImageGame = () => {
   const handleLetterClick = (item) => {
     const nextIndex = currentWord.de
       .split("")
-      .findIndex((char, idx) => char !== " " && !userInput.some((u) => u.index === idx));
+      .findIndex(
+        (char, idx) => char !== " " && !userInput.some((u) => u.index === idx)
+      );
 
     if (nextIndex !== -1) {
       setUserInput((prev) => [...prev, { ...item, index: nextIndex }]);
@@ -220,8 +236,14 @@ const ComboByImageGame = () => {
     if (stage === 3 && writeWords.length === 0) {
       setCompletedSets((prev) => ({ ...prev, [selectedSetId]: true }));
       confetti({ particleCount: 100, spread: 60, origin: { y: 0.6 } });
-      setTimeout(() => confetti({ particleCount: 100, spread: 80, origin: { y: 0.7 } }), 500);
-      setTimeout(() => confetti({ particleCount: 100, spread: 100, origin: { y: 0.8 } }), 1000);
+      setTimeout(
+        () => confetti({ particleCount: 100, spread: 80, origin: { y: 0.7 } }),
+        500
+      );
+      setTimeout(
+        () => confetti({ particleCount: 100, spread: 100, origin: { y: 0.8 } }),
+        1000
+      );
     }
     // eslint-disable-next-line
   }, [stage, writeWords]);
@@ -241,7 +263,9 @@ const ComboByImageGame = () => {
   return (
     <section className="combo-game">
       <Header />
-      {wrongAnswer && <div className="combo-game__toast">Incorrect! Check the answer.</div>}
+      {wrongAnswer && (
+        <div className="combo-game__toast">{t("comboGame_toast")}</div>
+      )}
       {!selectedSetId ? (
         <div className="combo-game__selector-grid">
           {Object.entries(vocabluaryData).map(([setId, set]) => (
@@ -260,28 +284,39 @@ const ComboByImageGame = () => {
           <div className="combo-game__finish-img">
             <img src={finishImg} alt="finish" />
           </div>
-          <h2 className="combo-game__finish-title">Great job!</h2>
-          <div className="combo-game__finish-subtitle">You completed the set</div>
+          <h2 className="combo-game__finish-title">{t("comboGame_finish_title")}</h2>
+          <div className="combo-game__finish-subtitle">
+          {t("comboGame_finish_subtitle")}
+          </div>
           <button className="combo-game__finish-btn" onClick={resetGame}>
-            Choose another set
+          {t("comboGame_finish_button")}
           </button>
         </div>
       ) : (
         <div className="combo-game__container">
           {/* Progress bars */}
           <div className="combo-game__multi-progress">
-            {[guessProgress, collectProgress, writeProgress].map((progress, idx) => (
-              <div className="combo-game__stage-bar" key={idx}>
-                <div className="combo-game__progress-bar">
-                  <div className="combo-game__progress-bar-inner" style={{ width: `${progress}%` }} />
+            {[guessProgress, collectProgress, writeProgress].map(
+              (progress, idx) => (
+                <div className="combo-game__stage-bar" key={idx}>
+                  <div className="combo-game__progress-bar">
+                    <div
+                      className="combo-game__progress-bar-inner"
+                      style={{ width: `${progress}%` }}
+                    />
+                  </div>
                 </div>
-              </div>
-            ))}
+              )
+            )}
           </div>
 
           {/* Image */}
           {currentWord && (
-            <div className={`combo-game__image ${showAnswer ? "flipped" : ""} ${wrongAnswer ? "shake" : ""}`}>
+            <div
+              className={`combo-game__image ${showAnswer ? "flipped" : ""} ${
+                wrongAnswer ? "shake" : ""
+              }`}
+            >
               <div className="combo-game__image-front">
                 <img src={currentWord.image} alt={currentWord.de} />
                 {wasCorrect && (
@@ -291,7 +326,9 @@ const ComboByImageGame = () => {
                 )}
               </div>
               <div className="combo-game__image-back">
-                <p className={hideBackText ? "hidden-answer" : ""}>{currentWord.de}</p>
+                <p className={hideBackText ? "hidden-answer" : ""}>
+                  {currentWord.de}
+                </p>
               </div>
             </div>
           )}
@@ -300,7 +337,11 @@ const ComboByImageGame = () => {
           {stage === 1 && (
             <div className="combo-game__options">
               {options.map((opt, idx) => (
-                <button key={idx} onClick={() => handleGuess(opt)} className="combo-game__option">
+                <button
+                  key={idx}
+                  onClick={() => handleGuess(opt)}
+                  className="combo-game__option"
+                >
                   {opt.de}
                 </button>
               ))}
@@ -312,16 +353,25 @@ const ComboByImageGame = () => {
               <div className="combo-game__input">
                 <div className="combo-game__input-letters">
                   {currentWord.de.split("").map((char, i) => {
-                    const letter = userInput.find((u) => u.index === i)?.letter || "_";
+                    const letter =
+                      userInput.find((u) => u.index === i)?.letter || "_";
                     const isFirstLetter = i === currentWord.de.indexOf(" ") + 1;
                     return (
                       <span key={i} className="combo-game__input-letter">
-                        {char === " " ? " " : isFirstLetter ? letter.toUpperCase() : letter}
+                        {char === " "
+                          ? " "
+                          : isFirstLetter
+                          ? letter.toUpperCase()
+                          : letter}
                       </span>
                     );
                   })}
                 </div>
-                <button className="combo-game__delete" onClick={handleDelete} disabled={!userInput.length}>
+                <button
+                  className="combo-game__delete"
+                  onClick={handleDelete}
+                  disabled={!userInput.length}
+                >
                   <IoIosBackspace />
                 </button>
               </div>
@@ -329,7 +379,9 @@ const ComboByImageGame = () => {
                 {letterPool.map((item) => (
                   <button
                     key={item.id}
-                    className={`combo-game__letter-btn ${item.used ? "combo-game__letter-btn--used" : ""}`}
+                    className={`combo-game__letter-btn ${
+                      item.used ? "combo-game__letter-btn--used" : ""
+                    }`}
                     onClick={() => handleLetterClick(item)}
                     disabled={item.used}
                   >
@@ -350,8 +402,12 @@ const ComboByImageGame = () => {
                 className="combo-game__input-stage3"
                 disabled={showAnswer}
               />
-              <button type={showAnswer ? "button" : "submit"} onClick={showAnswer ? handleNext : undefined} className="combo-game__button">
-                {showAnswer ? "Next" : "Check"}
+              <button
+                type={showAnswer ? "button" : "submit"}
+                onClick={showAnswer ? handleNext : undefined}
+                className="combo-game__button"
+              >
+                {showAnswer ? t("comboGame_check") : t("comboGame_next")}
               </button>
             </form>
           )}

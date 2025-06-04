@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 import "./NameInputPage.scss";
 
 const NameInputPage = () => {
+  const { t } = useTranslation();
   const [name, setName] = useState("");
 
   const handleSubmit = () => {
@@ -13,14 +15,14 @@ const NameInputPage = () => {
 
   return (
     <div className="name-input">
-      <h2>What's your name?</h2>
+      <h2>{t("nameInput.question")}</h2>
       <input
         type="text"
-        placeholder="Enter your name"
+        placeholder={t("nameInput.placeholder")}
         value={name}
         onChange={(e) => setName(e.target.value)}
       />
-      <button onClick={handleSubmit}>Continue</button>
+      <button className="continue-button" onClick={handleSubmit}>{t("nameInput.button")}</button>
     </div>
   );
 };

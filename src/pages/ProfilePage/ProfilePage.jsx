@@ -1,11 +1,13 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import Navbar from "../../components/sections/navbar/navbar";
 import profileImage from "../../assets/img/HomePage/profile_img.webp";
 import { FaPlus, FaCheck } from "react-icons/fa6";
 import "./ProfilePage.scss";
 
 const ProfilePage = () => {
+  const { t } = useTranslation();
   const [name, setName] = useState("");
   const [image, setImage] = useState("");
   const [tempName, setTempName] = useState("");
@@ -29,7 +31,6 @@ const ProfilePage = () => {
     document.documentElement.setAttribute("data-theme", theme);
     localStorage.setItem("theme", theme);
   }, [theme]);
-  
 
   const handleImageChange = (event) => {
     const file = event.target.files[0];
@@ -52,7 +53,6 @@ const ProfilePage = () => {
 
     setTimeout(() => {
       setShowNotification(false);
-      // navigate("/deutsch-lernen");
     }, 2000);
   };
 
@@ -69,13 +69,13 @@ const ProfilePage = () => {
   return (
     <section className="profile">
       {showNotification && (
-        <div className="profile__notification">Data saved successfully</div>
+        <div className="profile__notification">{t("dataSaved")}</div>
       )}
 
       <div className="profile__header">
         <div className="profile__header-setting">
           <FaPlus className="profile__header-cancel" onClick={handleCancel} />
-          <div className="profile__header-title">Your Account</div>
+          <div className="profile__header-title">{t("yourAccount")}</div>
           <FaCheck className="profile__header-accept" onClick={handleAccept} />
         </div>
 
@@ -87,7 +87,7 @@ const ProfilePage = () => {
           className="profile__header-change"
           onClick={() => fileInputRef.current.click()}
         >
-          Change profile photo
+          {t("changeProfilePhoto")}
         </div>
 
         <input
@@ -101,23 +101,23 @@ const ProfilePage = () => {
 
       <div className="profile__container">
         <div className="profile__info">
-          <div className="profile__title">Personal Information</div>
+          <div className="profile__title">{t("personalInformation")}</div>
           <div className="profile__info-item">
-            <div className="profile__info-item-title">Name</div>
+            <div className="profile__info-item-title">{t("name")}</div>
             <input
               type="text"
               className="profile__info-item-input"
               value={tempName}
               onChange={(e) => setTempName(e.target.value)}
-              placeholder="Enter Name"
+              placeholder={t("enterName")}
             />
           </div>
         </div>
 
         <div className="profile__settings">
-          <div className="profile__title">Settings</div>
+          <div className="profile__title">{t("settings")}</div>
           <div className="profile__info-item">
-            <div className="profile__info-item-title">Theme</div>
+            <div className="profile__info-item-title">{t("theme")}</div>
             <div className="profile__theme-switch">
               <label className="profile__theme-switch-label">
                 <input
@@ -129,6 +129,23 @@ const ProfilePage = () => {
                 <span className="profile__theme-slider"></span>
               </label>
             </div>
+          </div>
+          <div className="profile__info-item">
+            <div className="profile__info-item-title">{t("language")}</div>
+            <select
+              className="profile__info-item-input"
+              value={localStorage.getItem("i18nextLng") || "en"}
+              onChange={(e) => {
+                const newLang = e.target.value;
+                localStorage.setItem("i18nextLng", newLang);
+                window.location.reload();
+              }}
+            >
+              <option value="en">English</option>
+              <option value="de">Deutsch</option>
+              <option value="ua">Українська</option>
+              <option value="ru">Русский</option>
+            </select>
           </div>
         </div>
       </div>
