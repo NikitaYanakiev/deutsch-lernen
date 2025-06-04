@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/deutsch-lernen/static/css/main.fb843bd5.css",
-    "main.js": "/deutsch-lernen/static/js/main.26175b59.js",
+    "main.js": "/deutsch-lernen/static/js/main.3f7ecd3a.js",
     "static/media/articles.png": "/deutsch-lernen/static/media/articles.bc341978b2e6cde81e45.png",
     "static/media/cards.png": "/deutsch-lernen/static/media/cards.2349320744b505f96e58.png",
     "static/media/finish.png": "/deutsch-lernen/static/media/finish.5b861b12ccd037f3bae3.png",
@@ -51,10 +51,10 @@
     "static/media/profile_img.webp": "/deutsch-lernen/static/media/profile_img.ccc711a45cb0d3767c9d.webp",
     "index.html": "/deutsch-lernen/index.html",
     "main.fb843bd5.css.map": "/deutsch-lernen/static/css/main.fb843bd5.css.map",
-    "main.26175b59.js.map": "/deutsch-lernen/static/js/main.26175b59.js.map"
+    "main.3f7ecd3a.js.map": "/deutsch-lernen/static/js/main.3f7ecd3a.js.map"
   },
   "entrypoints": [
     "static/css/main.fb843bd5.css",
-    "static/js/main.26175b59.js"
+    "static/js/main.3f7ecd3a.js"
   ]
 }
