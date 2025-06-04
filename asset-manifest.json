@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/deutsch-lernen/static/css/main.f2dae6e1.css",
-    "main.js": "/deutsch-lernen/static/js/main.ca373ace.js",
+    "main.css": "/deutsch-lernen/static/css/main.fb843bd5.css",
+    "main.js": "/deutsch-lernen/static/js/main.5502be2b.js",
     "static/media/articles.png": "/deutsch-lernen/static/media/articles.bc341978b2e6cde81e45.png",
     "static/media/cards.png": "/deutsch-lernen/static/media/cards.2349320744b505f96e58.png",
     "static/media/finish.png": "/deutsch-lernen/static/media/finish.5b861b12ccd037f3bae3.png",
@@ -20,6 +20,7 @@
     "static/media/avatar.png": "/deutsch-lernen/static/media/avatar.ce84813268a55bb3a0d0.png",
     "static/media/map.png": "/deutsch-lernen/static/media/map.ee78837473f057d5510d.png",
     "static/media/shirt.png": "/deutsch-lernen/static/media/shirt.ea3f3e9cc781f00f740c.png",
+    "static/media/united-kingdom.png": "/deutsch-lernen/static/media/united-kingdom.c2e671e7ba671756596f.png",
     "static/media/beanie.png": "/deutsch-lernen/static/media/beanie.da324898c8b9cd76d0ac.png",
     "static/media/soup.png": "/deutsch-lernen/static/media/soup.1ccb263f53befe0ce867.png",
     "static/media/coat.png": "/deutsch-lernen/static/media/coat.2fe7fe17dcdbc3424599.png",
@@ -49,11 +50,11 @@
     "static/media/airport.png": "/deutsch-lernen/static/media/airport.730bc56504e7e27c51af.png",
     "static/media/profile_img.webp": "/deutsch-lernen/static/media/profile_img.ccc711a45cb0d3767c9d.webp",
     "index.html": "/deutsch-lernen/index.html",
-    "main.f2dae6e1.css.map": "/deutsch-lernen/static/css/main.f2dae6e1.css.map",
-    "main.ca373ace.js.map": "/deutsch-lernen/static/js/main.ca373ace.js.map"
+    "main.fb843bd5.css.map": "/deutsch-lernen/static/css/main.fb843bd5.css.map",
+    "main.5502be2b.js.map": "/deutsch-lernen/static/js/main.5502be2b.js.map"
   },
   "entrypoints": [
-    "static/css/main.f2dae6e1.css",
-    "static/js/main.ca373ace.js"
+    "static/css/main.fb843bd5.css",
+    "static/js/main.5502be2b.js"
   ]
 }
