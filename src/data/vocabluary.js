@@ -134,6 +134,70 @@ import crocodile from "../assets/img/animals/crocodile.png";
 import kangaroo from "../assets/img/animals/kangaroo.png";
 import panda from "../assets/img/animals/panda.png";
 
+// --- Body ---
+import bodyIcon from "../assets/img/body/body.png";
+import head from "../assets/img/body/head.png";
+import face from "../assets/img/body/face.png";
+import hair from "../assets/img/body/hair.png";
+import eye from "../assets/img/body/eye.png";
+import ear from "../assets/img/body/ear.png";
+import nose from "../assets/img/body/nose.png";
+import mouth from "../assets/img/body/mouth.png";
+import tooth from "../assets/img/body/tooth.png";
+import tongue from "../assets/img/body/tongue.png";
+import neck from "../assets/img/body/neck.png";
+import shoulder from "../assets/img/body/shoulder.png";
+import arm from "../assets/img/body/arm.png";
+import elbow from "../assets/img/body/elbow.png";
+import hand from "../assets/img/body/hand.png";
+import finger from "../assets/img/body/finger.png";
+import chest from "../assets/img/body/chest.png";
+import back from "../assets/img/body/back.png";
+import stomach from "../assets/img/body/stomach.png";
+import waist from "../assets/img/body/waist.png";
+import hip from "../assets/img/body/hip.png";
+import leg from "../assets/img/body/leg.png";
+import thigh from "../assets/img/body/thigh.png";
+import knee from "../assets/img/body/knee.png";
+import foot from "../assets/img/body/foot.png";
+import toe from "../assets/img/body/toe.png";
+import skin from "../assets/img/body/skin.png";
+import bone from "../assets/img/body/bone.png";
+import muscle from "../assets/img/body/muscle.png";
+import heart from "../assets/img/body/heart.png";
+
+// --- Family ---
+import familyIcon from "../assets/img/family/family.png";
+import mother from "../assets/img/family/mother.png";
+import father from "../assets/img/family/father.png";
+import brother from "../assets/img/family/brother.png";
+import sister from "../assets/img/family/sister.png";
+import grandmother from "../assets/img/family/grandmother.png";
+import grandfather from "../assets/img/family/grandfather.png";
+import daughter from "../assets/img/family/daughter.png";
+import son from "../assets/img/family/son.png";
+import aunt from "../assets/img/family/aunt.png";
+import uncle from "../assets/img/family/uncle.png";
+import cousin from "../assets/img/family/cousin.png";
+import niece from "../assets/img/family/niece.png";
+import nephew from "../assets/img/family/nephew.png";
+import wife from "../assets/img/family/wife.png";
+import husband from "../assets/img/family/husband.png";
+import parents from "../assets/img/family/parents.png";
+import children from "../assets/img/family/children.png";
+import siblings from "../assets/img/family/siblings.png";
+import twins from "../assets/img/family/twins.png";
+import stepfather from "../assets/img/family/stepfather.png";
+import stepmother from "../assets/img/family/stepmother.png";
+import stepsister from "../assets/img/family/stepsister.png";
+import stepbrother from "../assets/img/family/stepbrother.png";
+import daughterinlaw from "../assets/img/family/daughterinlaw.png";
+import soninlaw from "../assets/img/family/soninlaw.png";
+import fatherinlaw from "../assets/img/family/fatherinlaw.png";
+import motherinlaw from "../assets/img/family/motherinlaw.png";
+import spouse from "../assets/img/family/spouse.png";
+import baby from "../assets/img/family/baby.png";
+
 
 // 🧠 Данные
 const vocabluaryData = {
@@ -281,6 +345,78 @@ const vocabluaryData = {
       { de: "der Panda", ru: "панда", ua: "панда", en: "panda", image: panda, learned: false },
     ],
   },
+  Body: {
+    level: "A1",
+    image: bodyIcon,
+    words: [
+      { de: "der Kopf", ru: "голова", ua: "голова", en: "head", image: head, learned: false },
+      { de: "das Gesicht", ru: "лицо", ua: "обличчя", en: "face", image: face, learned: false },
+      { de: "das Haar", ru: "волосы", ua: "волосся", en: "hair", image: hair, learned: false },
+      { de: "das Auge", ru: "глаз", ua: "око", en: "eye", image: eye, learned: false },
+      { de: "das Ohr", ru: "ухо", ua: "вухо", en: "ear", image: ear, learned: false },
+      { de: "die Nase", ru: "нос", ua: "ніс", en: "nose", image: nose, learned: false },
+      { de: "der Mund", ru: "рот", ua: "рот", en: "mouth", image: mouth, learned: false },
+      { de: "der Zahn", ru: "зуб", ua: "зуб", en: "tooth", image: tooth, learned: false },
+      { de: "die Zunge", ru: "язык", ua: "язик", en: "tongue", image: tongue, learned: false },
+      { de: "der Hals", ru: "шея", ua: "шия", en: "neck", image: neck, learned: false },
+      { de: "die Schulter", ru: "плечо", ua: "плече", en: "shoulder", image: shoulder, learned: false },
+      { de: "der Arm", ru: "рука", ua: "рука", en: "arm", image: arm, learned: false },
+      { de: "der Ellbogen", ru: "локоть", ua: "лікоть", en: "elbow", image: elbow, learned: false },
+      { de: "die Hand", ru: "кисть", ua: "долоня", en: "hand", image: hand, learned: false },
+      { de: "der Finger", ru: "палец", ua: "палець", en: "finger", image: finger, learned: false },
+      { de: "die Brust", ru: "грудь", ua: "груди", en: "chest", image: chest, learned: false },
+      { de: "der Rücken", ru: "спина", ua: "спина", en: "back", image: back, learned: false },
+      { de: "der Bauch", ru: "живот", ua: "живіт", en: "stomach", image: stomach, learned: false },
+      { de: "die Taille", ru: "талия", ua: "талія", en: "waist", image: waist, learned: false },
+      { de: "die Hüfte", ru: "бедро (внешняя часть)", ua: "стегно", en: "hip", image: hip, learned: false },
+      { de: "das Bein", ru: "нога", ua: "нога", en: "leg", image: leg, learned: false },
+      { de: "der Oberschenkel", ru: "бедро", ua: "стегно", en: "thigh", image: thigh, learned: false },
+      { de: "das Knie", ru: "колено", ua: "коліно", en: "knee", image: knee, learned: false },
+      { de: "der Fuß", ru: "ступня", ua: "ступня", en: "foot", image: foot, learned: false },
+      { de: "die Zehe", ru: "палец ноги", ua: "палець на нозі", en: "toe", image: toe, learned: false },
+      { de: "die Haut", ru: "кожа", ua: "шкіра", en: "skin", image: skin, learned: false },
+      { de: "der Knochen", ru: "кость", ua: "кістка", en: "bone", image: bone, learned: false },
+      { de: "der Muskel", ru: "мышца", ua: "м'яз", en: "muscle", image: muscle, learned: false },
+      { de: "das Herz", ru: "сердце", ua: "серце", en: "heart", image: heart, learned: false },
+    ],
+  },
+  Family: {
+    level: "A1",
+    image: familyIcon,
+    words: [
+      { de: "die Mutter", ru: "мать", ua: "мати", en: "mother", image: mother, learned: false },
+      { de: "der Vater", ru: "отец", ua: "батько", en: "father", image: father, learned: false },
+      { de: "der Bruder", ru: "брат", ua: "брат", en: "brother", image: brother, learned: false },
+      { de: "die Schwester", ru: "сестра", ua: "сестра", en: "sister", image: sister, learned: false },
+      { de: "die Großmutter", ru: "бабушка", ua: "бабуся", en: "grandmother", image: grandmother, learned: false },
+      { de: "der Großvater", ru: "дедушка", ua: "дідусь", en: "grandfather", image: grandfather, learned: false },
+      { de: "die Tochter", ru: "дочь", ua: "дочка", en: "daughter", image: daughter, learned: false },
+      { de: "der Sohn", ru: "сын", ua: "син", en: "son", image: son, learned: false },
+      { de: "die Tante", ru: "тётя", ua: "тітка", en: "aunt", image: aunt, learned: false },
+      { de: "der Onkel", ru: "дядя", ua: "дядько", en: "uncle", image: uncle, learned: false },
+      { de: "der Cousin", ru: "двоюродный брат", ua: "двоюрідний брат", en: "cousin", image: cousin, learned: false },
+      { de: "die Cousine", ru: "двоюродная сестра", ua: "двоюрідна сестра", en: "cousin", image: cousin, learned: false },
+      { de: "die Nichte", ru: "племянница", ua: "племінниця", en: "niece", image: niece, learned: false },
+      { de: "der Neffe", ru: "племянник", ua: "племінник", en: "nephew", image: nephew, learned: false },
+      { de: "die Ehefrau", ru: "жена", ua: "дружина", en: "wife", image: wife, learned: false },
+      { de: "der Ehemann", ru: "муж", ua: "чоловік", en: "husband", image: husband, learned: false },
+      { de: "die Eltern", ru: "родители", ua: "батьки", en: "parents", image: parents, learned: false },
+      { de: "die Kinder", ru: "дети", ua: "діти", en: "children", image: children, learned: false },
+      { de: "die Geschwister", ru: "братья и сёстры", ua: "брати і сестри", en: "siblings", image: siblings, learned: false },
+      { de: "die Zwillinge", ru: "близнецы", ua: "близнюки", en: "twins", image: twins, learned: false },
+      { de: "der Stiefvater", ru: "отчим", ua: "вітчим", en: "stepfather", image: stepfather, learned: false },
+      { de: "die Stiefmutter", ru: "мачеха", ua: "мачуха", en: "stepmother", image: stepmother, learned: false },
+      { de: "die Stiefschwester", ru: "сводная сестра", ua: "зведена сестра", en: "stepsister", image: stepsister, learned: false },
+      { de: "der Stiefbruder", ru: "сводный брат", ua: "зведений брат", en: "stepbrother", image: stepbrother, learned: false },
+      { de: "die Schwiegertochter", ru: "невестка", ua: "невістка", en: "daughter-in-law", image: daughterinlaw, learned: false },
+      { de: "der Schwiegersohn", ru: "зять", ua: "зять", en: "son-in-law", image: soninlaw, learned: false },
+      { de: "der Schwiegervater", ru: "тесть/свёкор", ua: "тесть/свекор", en: "father-in-law", image: fatherinlaw, learned: false },
+      { de: "die Schwiegermutter", ru: "теща/свекровь", ua: "теща/свекруха", en: "mother-in-law", image: motherinlaw, learned: false },
+      { de: "der Ehepartner", ru: "супруг", ua: "чоловік/дружина", en: "spouse", image: spouse, learned: false },
+      { de: "das Baby", ru: "младенец", ua: "немовля", en: "baby", image: baby, learned: false },
+    ],
+  },
+  
 };
 
 export default vocabluaryData;
