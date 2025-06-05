@@ -101,6 +101,7 @@
   "articles": "Articles",
   "of": "of",
   "noLecture": "There are no words for this lecture",
+  "noLevels": "There are no lectures for this level yet",
   "flashcard_finish": {
     "title": "Great job!",
     "subtitle": "You have learned {{count}} new words",

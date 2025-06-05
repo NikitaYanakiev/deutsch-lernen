@@ -101,6 +101,7 @@
   "articles": "Artikel",
   "of": "von",
   "noLecture": "Für diesen Vortrag fehlen die Worte",
+  "noLevels": "Für dieses Niveau gibt es noch keine Vorlesungen",
   "flashcard_finish": {
     "title": "Großartige Arbeit!",
     "subtitle": "Du hast {{count}} neue Wörter gelernt",

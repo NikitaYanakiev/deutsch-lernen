@@ -1,9 +1,11 @@
 :root {
   --bg-main-color: #f2f0fe;
+  --bg-main-color2: #e6e0fd;
   --bg-second-color: #ffffff;
   --bg-second-color-hover: #e0ddff;
 
   --main-color: #4c3d9c;
+  --main-color-hover: #3a2f7d;
   --light-main-color: #6055a1;
 
   --text-light: #ffffff;
@@ -48,6 +50,8 @@
 
 [data-theme='dark'] {
   --bg-main-color: #1e1e2f;
+  --bg-main-color2: #282831;
+
   --bg-second-color: #2e2e3e;
   --bg-second-color-hover: #1f1f2c;
 

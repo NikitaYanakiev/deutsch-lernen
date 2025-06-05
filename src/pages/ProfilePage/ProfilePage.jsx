@@ -1,30 +1,35 @@
 import React, { useEffect, useRef, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import Navbar from "../../components/sections/navbar/navbar";
 import profileImage from "../../assets/img/HomePage/profile_img.webp";
-import { FaPlus, FaCheck } from "react-icons/fa6";
 import "./ProfilePage.scss";
+
+import flagEn from "../../assets/img/flags/united-kingdom.png";
+import flagDe from "../../assets/img/flags/germany.png";
+import flagUa from "../../assets/img/flags/ukraine.png";
+import flagRu from "../../assets/img/flags/russia.png";
 
 const ProfilePage = () => {
   const { t } = useTranslation();
   const [name, setName] = useState("");
   const [image, setImage] = useState("");
-  const [tempName, setTempName] = useState("");
-  const [tempImage, setTempImage] = useState("");
   const [showNotification, setShowNotification] = useState(false);
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
 
   const fileInputRef = useRef(null);
-  const navigate = useNavigate();
+
+  const flags = {
+    en: flagEn,
+    de: flagDe,
+    ua: flagUa,
+    ru: flagRu,
+  };
 
   useEffect(() => {
     const storedName = localStorage.getItem("userName") || "";
     const storedImage = localStorage.getItem("userProfileImage") || "";
     setName(storedName);
     setImage(storedImage);
-    setTempName(storedName);
-    setTempImage(storedImage);
   }, []);
 
   useEffect(() => {
@@ -38,32 +43,29 @@ const ProfilePage = () => {
 
     const reader = new FileReader();
     reader.onloadend = () => {
-      setTempImage(reader.result);
+      const newImage = reader.result;
+      if (newImage !== image) {
+        setImage(newImage);
+        localStorage.setItem("userProfileImage", newImage);
+        triggerNotification();
+      }
     };
     reader.readAsDataURL(file);
   };
 
-  const handleAccept = () => {
-    setName(tempName);
-    setImage(tempImage);
-    localStorage.setItem("userName", tempName);
-    localStorage.setItem("userProfileImage", tempImage);
-
-    setShowNotification(true);
-
-    setTimeout(() => {
-      setShowNotification(false);
-    }, 2000);
-  };
-
-  const handleCancel = () => {
-    setTempName(name);
-    setTempImage(image);
-    navigate("/deutsch-lernen");
+  const handleNameChange = (e) => {
+    const newName = e.target.value;
+    setName(newName);
+    localStorage.setItem("userName", newName);
   };
 
   const toggleTheme = () => {
     setTheme((prev) => (prev === "light" ? "dark" : "light"));
+  };
+
+  const triggerNotification = () => {
+    setShowNotification(true);
+    setTimeout(() => setShowNotification(false), 2000);
   };
 
   return (
@@ -73,14 +75,10 @@ const ProfilePage = () => {
       )}
 
       <div className="profile__header">
-        <div className="profile__header-setting">
-          <FaPlus className="profile__header-cancel" onClick={handleCancel} />
-          <div className="profile__header-title">{t("yourAccount")}</div>
-          <FaCheck className="profile__header-accept" onClick={handleAccept} />
-        </div>
+        <div className="profile__header-title">{t("yourAccount")}</div>
 
         <div className="profile__header-img">
-          <img src={tempImage || profileImage} alt="Profile" />
+          <img src={image || profileImage} alt="Profile" />
         </div>
 
         <div
@@ -107,8 +105,9 @@ const ProfilePage = () => {
             <input
               type="text"
               className="profile__info-item-input"
-              value={tempName}
-              onChange={(e) => setTempName(e.target.value)}
+              value={name}
+              onChange={handleNameChange}
+              onBlur={triggerNotification}
               placeholder={t("enterName")}
             />
           </div>
@@ -116,6 +115,7 @@ const ProfilePage = () => {
 
         <div className="profile__settings">
           <div className="profile__title">{t("settings")}</div>
+
           <div className="profile__info-item">
             <div className="profile__info-item-title">{t("theme")}</div>
             <div className="profile__theme-switch">
@@ -130,22 +130,30 @@ const ProfilePage = () => {
               </label>
             </div>
           </div>
+
           <div className="profile__info-item">
             <div className="profile__info-item-title">{t("language")}</div>
-            <select
-              className="profile__info-item-input"
-              value={localStorage.getItem("i18nextLng") || "en"}
-              onChange={(e) => {
-                const newLang = e.target.value;
-                localStorage.setItem("i18nextLng", newLang);
-                window.location.reload();
-              }}
-            >
-              <option value="en">English</option>
-              <option value="de">Deutsch</option>
-              <option value="ua">Українська</option>
-              <option value="ru">Русский</option>
-            </select>
+            <div className="profile__select-wrapper">
+              <img
+                src={flags[localStorage.getItem("i18nextLng") || "en"]}
+                alt="flag"
+                className="profile__select-flag"
+              />
+              <select
+                className="profile__select"
+                value={localStorage.getItem("i18nextLng") || "en"}
+                onChange={(e) => {
+                  const newLang = e.target.value;
+                  localStorage.setItem("i18nextLng", newLang);
+                  window.location.reload();
+                }}
+              >
+                <option value="en">English</option>
+                <option value="de">Deutsch</option>
+                <option value="ua">Українська</option>
+                <option value="ru">Русский</option>
+              </select>
+            </div>
           </div>
         </div>
       </div>

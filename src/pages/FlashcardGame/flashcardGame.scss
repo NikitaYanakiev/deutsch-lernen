@@ -92,11 +92,11 @@
         background: var(--btn-no);
         color: white;
         box-shadow: var(--btn-no-shadow) 0px 7px 0px 0px;
-
-        &:hover {
-          box-shadow: var(--btn-no-shadow) 0px 5px 0px 0px;
+        @media (any-hover: hover) {
+          &:hover {
+            box-shadow: var(--btn-no-shadow) 0px 5px 0px 0px;
+          }
         }
-
         &:active {
           transform: translateY(5px);
           box-shadow: none;
@@ -107,11 +107,11 @@
         background: var(--btn-yes);
         color: white;
         box-shadow: var(--btn-yes-shadow) 0px 7px 0px 0px;
-
-        &:hover {
-          box-shadow: var(--btn-yes-shadow) 0px 5px 0px 0px;
+        @media (any-hover: hover) {
+          &:hover {
+            box-shadow: var(--btn-yes-shadow) 0px 5px 0px 0px;
+          }
         }
-
         &:active {
           transform: translateY(5px);
           box-shadow: none;
@@ -135,10 +135,11 @@
     cursor: pointer;
     box-shadow: var(--btn-reset-shadow) 0px 7px 0px 0px;
 
-    &:hover {
-      box-shadow: var(--btn-reset-shadow) 0px 5px 0px 0px;
+    @media (any-hover: hover) {
+      &:hover {
+        box-shadow: var(--btn-reset-shadow) 0px 5px 0px 0px;
+      }
     }
-
     &:active {
       transform: translateY(5px);
       box-shadow: none;

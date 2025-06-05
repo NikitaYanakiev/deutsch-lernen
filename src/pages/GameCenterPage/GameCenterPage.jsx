@@ -27,6 +27,7 @@ const GameCenterPage = () => {
             <div className="game-center__card-img">
               <img src={guessImg} alt="quiz" />
             </div>
+            <div className="game-center__card-line"></div>
             <div className="game-center__card-info">
               <h2 className="game-center__card-title">{t("games.guess.title")}</h2>
               <p className="game-center__card-descr">{t("games.guess.desc")}</p>
@@ -40,6 +41,7 @@ const GameCenterPage = () => {
             <div className="game-center__card-img">
               <img src={collectWord} alt="collect" />
             </div>
+            <div className="game-center__card-line"></div>
             <div className="game-center__card-info">
               <h2 className="game-center__card-title">{t("games.collect.title")}</h2>
               <p className="game-center__card-descr">{t("games.collect.desc")}</p>
@@ -53,6 +55,7 @@ const GameCenterPage = () => {
             <div className="game-center__card-img">
               <img src={writeWord} alt="write" />
             </div>
+            <div className="game-center__card-line"></div>
             <div className="game-center__card-info">
               <h2 className="game-center__card-title">{t("games.write.title")}</h2>
               <p className="game-center__card-descr">{t("games.write.desc")}</p>
@@ -66,6 +69,7 @@ const GameCenterPage = () => {
             <div className="game-center__card-img">
               <img src={comboImg} alt="combo" />
             </div>
+            <div className="game-center__card-line"></div>
             <div className="game-center__card-info">
               <h2 className="game-center__card-title">{t("games.combo.title")}</h2>
               <p className="game-center__card-descr">{t("games.combo.desc")}</p>

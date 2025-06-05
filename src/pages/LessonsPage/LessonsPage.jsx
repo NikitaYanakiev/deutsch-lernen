@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 import Navbar from "../../components/sections/navbar/navbar";
 import Header from "../../components/sections/header/header";
@@ -8,6 +9,7 @@ import wordsData from "../../data/words.json";
 import "./LessonsPage.scss";
 
 const LessonsPage = () => {
+  const { t } = useTranslation();
   const { level } = useParams();
   const lessonData = wordsData[level] || {};
   const lessonKeys = Object.keys(lessonData);
@@ -53,33 +55,36 @@ const LessonsPage = () => {
     const drawConnections = () => {
       lessons.forEach((_, index) => {
         if (index === lessons.length - 1) return;
-    
+
         const fromEl = document.getElementById(`lesson-${index}`);
         const toEl = document.getElementById(`lesson-${index + 1}`);
         const pathEl = document.getElementById(`line-${index}`);
         const svg = document.querySelector(".lessons__connections");
-    
+
         if (!fromEl || !toEl || !pathEl || !svg) return;
-    
+
         const fromRect = fromEl.getBoundingClientRect();
         const toRect = toEl.getBoundingClientRect();
         const svgRect = svg.getBoundingClientRect();
-    
+
         const isLeft = index % 2 === 0;
-    
+
         const fromX = isLeft
           ? fromRect.right - svgRect.left // правая сторона круга
           : fromRect.left - svgRect.left; // левая сторона круга
-          const verticalOffset = 12; // регулируй, насколько "ниже" от центра
-          const fromY = fromRect.top + fromRect.height / 2 + verticalOffset - svgRect.top;
+        const verticalOffset = 12; // регулируй, насколько "ниже" от центра
+        const fromY =
+          fromRect.top + fromRect.height / 2 + verticalOffset - svgRect.top;
 
         const toX = toRect.left + toRect.width / 2 - svgRect.left;
         const toY = toRect.top + toRect.height / 2 - svgRect.top;
-    
+
         const horizontalOffset = Math.abs(toX - fromX) * 1; // Динамический отступ
-    
-        const midX = isLeft ? fromX + horizontalOffset : fromX - horizontalOffset;
-    
+
+        const midX = isLeft
+          ? fromX + horizontalOffset
+          : fromX - horizontalOffset;
+
         const radius = 30;
 
         const d = `
@@ -90,7 +95,7 @@ const LessonsPage = () => {
           Q ${midX},${toY} ${midX + (isLeft ? -radius : radius)},${toY}
           L ${toX},${toY}
         `;
-    
+
         pathEl.setAttribute("d", d.trim());
       });
     };
@@ -107,9 +112,7 @@ const LessonsPage = () => {
       <div className="lessons__container">
         {lessonKeys.length > 0 ? (
           <div className="lessons__path-wrapper">
-            <svg
-              className="lessons__connections"
-            >
+            <svg className="lessons__connections">
               {lessons.map((_, index) =>
                 index < lessons.length - 1 ? (
                   <path
@@ -172,7 +175,7 @@ const LessonsPage = () => {
             </ul>
           </div>
         ) : (
-          <p className="lessons__empty">Ещё нет лекций для этого уровня.</p>
+          <p className="lessons__empty">{t("noLevels")}</p>
         )}
       </div>
 

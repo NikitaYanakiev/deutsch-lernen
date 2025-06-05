@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../../components/sections/navbar/navbar";
 import wordsData from "../../data/words.json";
@@ -12,12 +12,11 @@ const HomePage = () => {
   const levels = Object.keys(wordsData);
   const [progressData, setProgressData] = useState({});
   const [totalProgress, setTotalProgress] = useState(0);
-  const [profileImage, setProfileImage] = useState(
+  const [profileImage, ] = useState(
     localStorage.getItem("userProfileImage") || defaultProfileImg
   );
   const { t } = useTranslation();
 
-  const fileInputRef = useRef(null);
 
   useEffect(() => {
     const updateCompletedLessons = () => {
@@ -120,35 +119,11 @@ const HomePage = () => {
     calculateCompletion();
   }, []);
 
-  const handleImageClick = () => {
-    fileInputRef.current.click();
-  };
-
-  const handleImageChange = (event) => {
-    const file = event.target.files[0];
-    if (file && file.type.startsWith("image/")) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        const base64 = reader.result;
-        localStorage.setItem("userProfileImage", base64);
-        setProfileImage(base64);
-      };
-      reader.readAsDataURL(file);
-    }
-  };
-
   return (
     <section className="home">
       <div className="home__header">
-        <div className="home__profile-img" onClick={handleImageClick}>
+        <div className="home__profile-img">
           <img src={profileImage} alt="Profile" />
-          <input
-            type="file"
-            ref={fileInputRef}
-            onChange={handleImageChange}
-            accept="image/*"
-            style={{ display: "none" }}
-          />
         </div>
         <div className="home__profile-info">
           <h1 className="home__profile-title">

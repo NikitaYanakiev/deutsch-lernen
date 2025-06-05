@@ -57,4 +57,15 @@
       cursor: not-allowed;
     }
   }
+  .back-button {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    background: none;
+    border: none;
+    font-size: 40px;
+    cursor: pointer;
+    color: var(--main-color); 
+  }
+  
 }

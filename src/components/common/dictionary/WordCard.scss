@@ -1,7 +1,7 @@
 @import "../../../assets/styles/variables";
 
 .word-card {
-  border: 2px solid var(--text-sub);
+  border: 1.5px solid var(--main-color);
   border-radius: 8px;
   text-align: center;
   background-color: var(--bg-main-color);
@@ -9,6 +9,7 @@
   overflow: hidden;
 
   &--learned {
+
     border-color: #6cbe45;
   }
 
