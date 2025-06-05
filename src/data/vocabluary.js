@@ -12,6 +12,27 @@ import egg from "../assets/img/food/egg.png";
 import meat from "../assets/img/food/meat.png";
 import soup from "../assets/img/food/soup.png";
 
+import orange from "../assets/img/food/orange.png";
+import grape from "../assets/img/food/grape.png";
+import strawberry from "../assets/img/food/strawberry.png";
+import tomato from "../assets/img/food/tomato.png";
+import potato from "../assets/img/food/potato.png";
+import rice from "../assets/img/food/rice.png";
+import noodles from "../assets/img/food/noodles.png";
+import fishFood from "../assets/img/food/fish.png";
+import vegetables from "../assets/img/food/vegetables.png";
+import onion from "../assets/img/food/onion.png";
+import juice from "../assets/img/food/juice.png";
+import beer from "../assets/img/food/beer.png";
+import wine from "../assets/img/food/wine.png";
+import lemonade from "../assets/img/food/lemonade.png";
+import chocolate from "../assets/img/food/chocolate.png";
+import icecream from "../assets/img/food/icecream.png";
+import cake from "../assets/img/food/cake.png";
+import butter from "../assets/img/food/butter.png";
+import honey from "../assets/img/food/honey.png";
+import salt from "../assets/img/food/salt.png";
+
 // --- Clothes ---
 import clothesIcon from "../assets/img/clothes/clothes.png";
 import pants from "../assets/img/clothes/pants.png";
@@ -25,6 +46,27 @@ import blouse from "../assets/img/clothes/blouse.png";
 import beanie from "../assets/img/clothes/beanie.png";
 import coat from "../assets/img/clothes/coat.png";
 
+import tshirt from "../assets/img/clothes/tshirt.png";
+import sweater from "../assets/img/clothes/sweater.png";
+import jeans from "../assets/img/clothes/jeans.png";
+import skirt from "../assets/img/clothes/skirt.png";
+import suit from "../assets/img/clothes/suit.png";
+import tie from "../assets/img/clothes/tie.png";
+import glasses from "../assets/img/clothes/glasses.png";
+import scarf from "../assets/img/clothes/scarf.png";
+import gloves from "../assets/img/clothes/gloves.png";
+import sunglasses from "../assets/img/clothes/sunglasses.png";
+import underwear from "../assets/img/clothes/underwear.png";
+import swimsuit from "../assets/img/clothes/swimsuit.png";
+import swimtrunks from "../assets/img/clothes/swimtrunks.png";
+import bikini from "../assets/img/clothes/bikini.png";
+import overalls from "../assets/img/clothes/overalls.png";
+import vest from "../assets/img/clothes/vest.png";
+import tights from "../assets/img/clothes/tights.png";
+import sandals from "../assets/img/clothes/sandals.png";
+import boots from "../assets/img/clothes/boots.png";
+import flipflops from "../assets/img/clothes/flipflops.png";
+
 // --- Travel ---
 import travelIcon from "../assets/img/travel/travel.png";
 import hotel from "../assets/img/travel/hotel.png";
@@ -37,6 +79,61 @@ import street from "../assets/img/travel/street.png";
 import taxi from "../assets/img/travel/taxi.png";
 import bus from "../assets/img/travel/bus.png";
 import bridge from "../assets/img/travel/bridge.png";
+
+import train from "../assets/img/travel/train.png";
+import airplane from "../assets/img/travel/airplane.png";
+import flight from "../assets/img/travel/flight.png";
+import car from "../assets/img/travel/car.png";
+import trainstation from "../assets/img/travel/trainstation.png";
+import backpack from "../assets/img/travel/backpack.png";
+import ship from "../assets/img/travel/ship.png";
+import ferry from "../assets/img/travel/ferry.png";
+import bicycle from "../assets/img/travel/bicycle.png";
+import scooter from "../assets/img/travel/scooter.png";
+import travelguide from "../assets/img/travel/travelguide.png";
+import sight from "../assets/img/travel/sight.png";
+import journey from "../assets/img/travel/journey.png";
+import vacation from "../assets/img/travel/vacation.png";
+import holidayapartment from "../assets/img/travel/holidayapartment.png";
+import guesthouse from "../assets/img/travel/guesthouse.png";
+import hostel from "../assets/img/travel/hostel.png";
+import campsite from "../assets/img/travel/campsite.png";
+import visa from "../assets/img/travel/visa.png";
+import tourist from "../assets/img/travel/tourist.png";
+
+// --- Animals ---
+import animalsIcon from "../assets/img/animals/animals.png";
+import dog from "../assets/img/animals/dog.png";
+import cat from "../assets/img/animals/cat.png";
+import bird from "../assets/img/animals/bird.png";
+import fish from "../assets/img/animals/fish.png";
+import horse from "../assets/img/animals/horse.png";
+import cow from "../assets/img/animals/cow.png";
+import pig from "../assets/img/animals/pig.png";
+import sheep from "../assets/img/animals/sheep.png";
+import goat from "../assets/img/animals/goat.png";
+import chicken from "../assets/img/animals/chicken.png";
+import duck from "../assets/img/animals/duck.png";
+import goose from "../assets/img/animals/goose.png";
+import rabbit from "../assets/img/animals/rabbit.png";
+import mouse from "../assets/img/animals/mouse.png";
+import rat from "../assets/img/animals/rat.png";
+import lion from "../assets/img/animals/lion.png";
+import tiger from "../assets/img/animals/tiger.png";
+import bear from "../assets/img/animals/bear.png";
+import elephant from "../assets/img/animals/elephant.png";
+import giraffe from "../assets/img/animals/giraffe.png";
+import monkey from "../assets/img/animals/monkey.png";
+import fox from "../assets/img/animals/fox.png";
+import wolf from "../assets/img/animals/wolf.png";
+import deer from "../assets/img/animals/deer.png";
+import frog from "../assets/img/animals/frog.png";
+import turtle from "../assets/img/animals/turtle.png";
+import snake from "../assets/img/animals/snake.png";
+import crocodile from "../assets/img/animals/crocodile.png";
+import kangaroo from "../assets/img/animals/kangaroo.png";
+import panda from "../assets/img/animals/panda.png";
+
 
 // 🧠 Данные
 const vocabluaryData = {
@@ -54,9 +151,28 @@ const vocabluaryData = {
       { de: "das Ei", ru: "яйцо", ua: "яйце", en: "egg", image: egg, learned: false },
       { de: "das Fleisch", ru: "мясо", ua: "м'ясо", en: "meat", image: meat, learned: false },
       { de: "die Suppe", ru: "суп", ua: "суп", en: "soup", image: soup, learned: false },
+      { de: "die Orange", ru: "апельсин", ua: "апельсин", en: "orange", image: orange, learned: false },
+      { de: "die Traube", ru: "виноград", ua: "виноград", en: "grape", image: grape, learned: false },
+      { de: "die Erdbeere", ru: "клубника", ua: "полуниця", en: "strawberry", image: strawberry, learned: false },
+      { de: "die Tomate", ru: "помидор", ua: "помідор", en: "tomato", image: tomato, learned: false },
+      { de: "die Kartoffel", ru: "картофель", ua: "картопля", en: "potato", image: potato, learned: false },
+      { de: "der Reis", ru: "рис", ua: "рис", en: "rice", image: rice, learned: false },
+      { de: "die Nudeln", ru: "лапша", ua: "локшина", en: "noodles", image: noodles, learned: false },
+      { de: "der Fisch", ru: "рыба", ua: "риба", en: "fish", image: fishFood, learned: false },
+      { de: "das Gemüse", ru: "овощи", ua: "овочі", en: "vegetables", image: vegetables, learned: false },
+      { de: "die Zwiebel", ru: "лук", ua: "цибуля", en: "onion", image: onion, learned: false },
+      { de: "der Saft", ru: "сок", ua: "сік", en: "juice", image: juice, learned: false },
+      { de: "das Bier", ru: "пиво", ua: "пиво", en: "beer", image: beer, learned: false },
+      { de: "der Wein", ru: "вино", ua: "вино", en: "wine", image: wine, learned: false },
+      { de: "die Limonade", ru: "лимонад", ua: "лимонад", en: "lemonade", image: lemonade, learned: false },
+      { de: "die Schokolade", ru: "шоколад", ua: "шоколад", en: "chocolate", image: chocolate, learned: false },
+      { de: "das Eis", ru: "мороженое", ua: "морозиво", en: "ice cream", image: icecream, learned: false },
+      { de: "der Kuchen", ru: "пирог", ua: "пиріг", en: "cake", image: cake, learned: false },
+      { de: "die Butter", ru: "масло", ua: "масло", en: "butter", image: butter, learned: false },
+      { de: "der Honig", ru: "мед", ua: "мед", en: "honey", image: honey, learned: false },
+      { de: "das Salz", ru: "соль", ua: "сіль", en: "salt", image: salt, learned: false },
     ],
   },
-
   Clothes: {
     level: "A1",
     image: clothesIcon,
@@ -71,9 +187,28 @@ const vocabluaryData = {
       { de: "die Bluse", ru: "блузка", ua: "блузка", en: "blouse", image: blouse, learned: false },
       { de: "die Mütze", ru: "шапка", ua: "шапка", en: "beanie", image: beanie, learned: false },
       { de: "der Mantel", ru: "пальто", ua: "пальто", en: "coat", image: coat, learned: false },
+      { de: "das T-Shirt", ru: "футболка", ua: "футболка", en: "t-shirt", image: tshirt, learned: false },
+      { de: "der Pullover", ru: "свитер", ua: "светр", en: "sweater", image: sweater, learned: false },
+      { de: "die Jeans", ru: "джинсы", ua: "джинси", en: "jeans", image: jeans, learned: false },
+      { de: "der Rock", ru: "юбка", ua: "спідниця", en: "skirt", image: skirt, learned: false },
+      { de: "der Anzug", ru: "костюм", ua: "костюм", en: "suit", image: suit, learned: false },
+      { de: "die Krawatte", ru: "галстук", ua: "краватка", en: "tie", image: tie, learned: false },
+      { de: "die Brille", ru: "очки", ua: "окуляри", en: "glasses", image: glasses, learned: false },
+      { de: "der Schal", ru: "шарф", ua: "шарф", en: "scarf", image: scarf, learned: false },
+      { de: "die Handschuhe", ru: "перчатки", ua: "рукавички", en: "gloves", image: gloves, learned: false },
+      { de: "die Sonnenbrille", ru: "солнцезащитные очки", ua: "сонцезахисні окуляри", en: "sunglasses", image: sunglasses, learned: false },
+      { de: "die Unterwäsche", ru: "нижнее белье", ua: "спідня білизна", en: "underwear", image: underwear, learned: false },
+      { de: "der Badeanzug", ru: "купальник", ua: "купальник", en: "swimsuit", image: swimsuit, learned: false },
+      { de: "die Badehose", ru: "плавки", ua: "плавки", en: "swim trunks", image: swimtrunks, learned: false },
+      { de: "der Bikini", ru: "бикини", ua: "бікіні", en: "bikini", image: bikini, learned: false },
+      { de: "der Overall", ru: "комбинезон", ua: "комбінезон", en: "overalls", image: overalls, learned: false },
+      { de: "die Weste", ru: "жилет", ua: "жилет", en: "vest", image: vest, learned: false },
+      { de: "die Strumpfhose", ru: "колготки", ua: "колготи", en: "tights", image: tights, learned: false },
+      { de: "die Sandalen", ru: "сандалии", ua: "сандалі", en: "sandals", image: sandals, learned: false },
+      { de: "die Stiefel", ru: "сапоги", ua: "чоботи", en: "boots", image: boots, learned: false },
+      { de: "die Flip-Flops", ru: "шлепанцы", ua: "капці", en: "flip-flops", image: flipflops, learned: false },
     ],
   },
-
   Travel: {
     level: "A1",
     image: travelIcon,
@@ -88,6 +223,62 @@ const vocabluaryData = {
       { de: "das Taxi", ru: "такси", ua: "таксі", en: "taxi", image: taxi, learned: false },
       { de: "der Bus", ru: "автобус", ua: "автобус", en: "bus", image: bus, learned: false },
       { de: "die Brücke", ru: "мост", ua: "міст", en: "bridge", image: bridge, learned: false },
+      { de: "der Zug", ru: "поезд", ua: "потяг", en: "train", image: train, learned: false },
+      { de: "das Flugzeug", ru: "самолет", ua: "літак", en: "airplane", image: airplane, learned: false },
+      { de: "der Flug", ru: "рейс", ua: "рейс", en: "flight", image: flight, learned: false },
+      { de: "das Auto", ru: "машина", ua: "авто", en: "car", image: car, learned: false },
+      { de: "der Bahnhof", ru: "вокзал", ua: "вокзал", en: "train station", image: trainstation, learned: false },
+      { de: "der Rucksack", ru: "рюкзак", ua: "рюкзак", en: "backpack", image: backpack, learned: false },
+      { de: "das Schiff", ru: "корабль", ua: "корабель", en: "ship", image: ship, learned: false },
+      { de: "die Fähre", ru: "паром", ua: "пором", en: "ferry", image: ferry, learned: false },
+      { de: "das Fahrrad", ru: "велосипед", ua: "велосипед", en: "bicycle", image: bicycle, learned: false },
+      { de: "der Roller", ru: "самокат", ua: "самокат", en: "scooter", image: scooter, learned: false },
+      { de: "der Reiseführer", ru: "путеводитель", ua: "путівник", en: "travel guide", image: travelguide, learned: false },
+      { de: "die Sehenswürdigkeit", ru: "достопримечательность", ua: "пам’ятка", en: "sight", image: sight, learned: false },
+      { de: "die Reise", ru: "путешествие", ua: "подорож", en: "journey", image: journey, learned: false },
+      { de: "der Urlaub", ru: "отпуск", ua: "відпустка", en: "vacation", image: vacation, learned: false },
+      { de: "die Ferienwohnung", ru: "апартаменты", ua: "апартаменти", en: "holiday apartment", image: holidayapartment, learned: false },
+      { de: "die Pension", ru: "гостевой дом", ua: "пансіон", en: "guesthouse", image: guesthouse, learned: false },
+      { de: "die Jugendherberge", ru: "хостел", ua: "хостел", en: "hostel", image: hostel, learned: false },
+      { de: "der Campingplatz", ru: "кемпинг", ua: "кемпінг", en: "campsite", image: campsite, learned: false },
+      { de: "das Visum", ru: "виза", ua: "віза", en: "visa", image: visa, learned: false },
+      { de: "der Tourist", ru: "турист", ua: "турист", en: "tourist", image: tourist, learned: false },
+    ],
+  },
+  Animals: {
+    level: "A1",
+    image: animalsIcon,
+    words: [
+      { de: "der Hund", ru: "собака", ua: "собака", en: "dog", image: dog, learned: false },
+      { de: "die Katze", ru: "кошка", ua: "кіт", en: "cat", image: cat, learned: false },
+      { de: "der Vogel", ru: "птица", ua: "птах", en: "bird", image: bird, learned: false },
+      { de: "der Fisch", ru: "рыба", ua: "риба", en: "fish", image: fish, learned: false },
+      { de: "das Pferd", ru: "лошадь", ua: "кінь", en: "horse", image: horse, learned: false },
+      { de: "die Kuh", ru: "корова", ua: "корова", en: "cow", image: cow, learned: false },
+      { de: "das Schwein", ru: "свинья", ua: "свиня", en: "pig", image: pig, learned: false },
+      { de: "das Schaf", ru: "овца", ua: "вівця", en: "sheep", image: sheep, learned: false },
+      { de: "die Ziege", ru: "коза", ua: "коза", en: "goat", image: goat, learned: false },
+      { de: "das Huhn", ru: "курица", ua: "курка", en: "chicken", image: chicken, learned: false },
+      { de: "die Ente", ru: "утка", ua: "качка", en: "duck", image: duck, learned: false },
+      { de: "die Gans", ru: "гусь", ua: "гуска", en: "goose", image: goose, learned: false },
+      { de: "das Kaninchen", ru: "кролик", ua: "кролик", en: "rabbit", image: rabbit, learned: false },
+      { de: "die Maus", ru: "мышь", ua: "миша", en: "mouse", image: mouse, learned: false },
+      { de: "die Ratte", ru: "крыса", ua: "пацюк", en: "rat", image: rat, learned: false },
+      { de: "der Löwe", ru: "лев", ua: "лев", en: "lion", image: lion, learned: false },
+      { de: "der Tiger", ru: "тигр", ua: "тигр", en: "tiger", image: tiger, learned: false },
+      { de: "der Bär", ru: "медведь", ua: "ведмідь", en: "bear", image: bear, learned: false },
+      { de: "der Elefant", ru: "слон", ua: "слон", en: "elephant", image: elephant, learned: false },
+      { de: "die Giraffe", ru: "жираф", ua: "жирафа", en: "giraffe", image: giraffe, learned: false },
+      { de: "der Affe", ru: "обезьяна", ua: "мавпа", en: "monkey", image: monkey, learned: false },
+      { de: "der Fuchs", ru: "лиса", ua: "лисиця", en: "fox", image: fox, learned: false },
+      { de: "der Wolf", ru: "волк", ua: "вовк", en: "wolf", image: wolf, learned: false },
+      { de: "das Reh", ru: "олень", ua: "олень", en: "deer", image: deer, learned: false },
+      { de: "der Frosch", ru: "лягушка", ua: "жаба", en: "frog", image: frog, learned: false },
+      { de: "die Schildkröte", ru: "черепаха", ua: "черепаха", en: "turtle", image: turtle, learned: false },
+      { de: "die Schlange", ru: "змея", ua: "змія", en: "snake", image: snake, learned: false },
+      { de: "das Krokodil", ru: "крокодил", ua: "крокодил", en: "crocodile", image: crocodile, learned: false },
+      { de: "das Känguru", ru: "кенгуру", ua: "кенгуру", en: "kangaroo", image: kangaroo, learned: false },
+      { de: "der Panda", ru: "панда", ua: "панда", en: "panda", image: panda, learned: false },
     ],
   },
 };
