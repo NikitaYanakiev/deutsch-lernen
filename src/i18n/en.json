@@ -51,7 +51,8 @@
     "Family": "Family",
     "Home": "Home",
     "School": "School",
-    "Jobs": "Jobs",
+    "Job": "Job",
+    "City": "City",
     "Travel": "Travel",
     "Weather": "Weather"
   },

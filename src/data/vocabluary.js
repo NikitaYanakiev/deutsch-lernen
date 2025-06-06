@@ -198,6 +198,105 @@ import motherinlaw from "../assets/img/family/motherinlaw.png";
 import spouse from "../assets/img/family/spouse.png";
 import baby from "../assets/img/family/baby.png";
 
+// --- home ---
+import homeIcon from "../assets/img/home/home.png";
+import house from "../assets/img/home/house.png";
+import apartment from "../assets/img/home/apartment.png";
+import door from "../assets/img/home/door.png";
+import window from "../assets/img/home/window.png";
+import roof from "../assets/img/home/roof.png";
+import wall from "../assets/img/home/wall.png";
+import floor from "../assets/img/home/floor.png";
+import ceiling from "../assets/img/home/ceiling.png";
+import kitchen from "../assets/img/home/kitchen.png";
+import bathroom from "../assets/img/home/bathroom.png";
+import bedroom from "../assets/img/home/bedroom.png";
+import livingroom from "../assets/img/home/livingroom.png";
+import furniture from "../assets/img/home/furniture.png";
+import table from "../assets/img/home/table.png";
+import chair from "../assets/img/home/chair.png";
+import sofa from "../assets/img/home/sofa.png";
+import bed from "../assets/img/home/bed.png";
+import wardrobe from "../assets/img/home/wardrobe.png";
+import lamp from "../assets/img/home/lamp.png";
+import balcony from "../assets/img/home/balcony.png";
+import garage from "../assets/img/home/garage.png";
+import garden from "../assets/img/home/garden.png";
+import fence from "../assets/img/home/fence.png";
+import stairs from "../assets/img/home/stairs.png";
+import elevator from "../assets/img/home/elevator.png";
+import hallway from "../assets/img/home/hallway.png";
+import key from "../assets/img/home/key.png";
+import rent from "../assets/img/home/rent.png";
+import landlord from "../assets/img/home/landlord.png";
+
+// --- Work ---
+import workIcon from "../assets/img/work/work.png";
+import office from "../assets/img/work/office.png";
+import job from "../assets/img/work/job.png";
+import boss from "../assets/img/work/boss.png";
+import colleague from "../assets/img/work/colleague.png";
+import meeting from "../assets/img/work/meeting.png";
+import computer from "../assets/img/work/computer.png";
+import desk from "../assets/img/work/desk.png";
+import workChair from "../assets/img/work/workChair.png";
+import document from "../assets/img/work/document.png";
+import phone from "../assets/img/work/phone.png";
+import email from "../assets/img/work/email.png";
+import printer from "../assets/img/work/printer.png";
+import contract from "../assets/img/work/contract.png";
+import resume from "../assets/img/work/resume.png";
+import interview from "../assets/img/work/interview.png";
+import salary from "../assets/img/work/salary.png";
+import schedule from "../assets/img/work/schedule.png";
+import task from "../assets/img/work/task.png";
+import deadline from "../assets/img/work/deadline.png";
+import breaktime from "../assets/img/work/breaktime.png";
+import uniform from "../assets/img/work/uniform.png";
+import career from "../assets/img/work/career.png";
+import promotion from "../assets/img/work/promotion.png";
+import freelancer from "../assets/img/work/freelancer.png";
+import team from "../assets/img/work/team.png";
+import project from "../assets/img/work/project.png";
+import goal from "../assets/img/work/goal.png";
+import bosslady from "../assets/img/work/bosslady.png";
+import manager from "../assets/img/work/manager.png";
+
+// --- CityInfrastructure ---
+import cityIcon from "../assets/img/city/city.png";
+import streetCity from "../assets/img/city/street.png";
+import square from "../assets/img/city/square.png";
+import bank from "../assets/img/city/bank.png";
+import pharmacy from "../assets/img/city/pharmacy.png";
+import hospital from "../assets/img/city/hospital.png";
+import police from "../assets/img/city/police.png";
+import firestation from "../assets/img/city/firestation.png";
+import postoffice from "../assets/img/city/postoffice.png";
+import cityhall from "../assets/img/city/cityhall.png";
+import library from "../assets/img/city/library.png";
+import museum from "../assets/img/city/museum.png";
+import school from "../assets/img/city/school.png";
+import university from "../assets/img/city/university.png";
+import park from "../assets/img/city/park.png";
+import playground from "../assets/img/city/playground.png";
+import supermarket from "../assets/img/city/supermarket.png";
+import store from "../assets/img/city/store.png";
+import bakery from "../assets/img/city/bakery.png";
+import restaurant from "../assets/img/city/restaurant.png";
+import cafe from "../assets/img/city/cafe.png";
+import cinema from "../assets/img/city/cinema.png";
+import theater from "../assets/img/city/theater.png";
+import fountain from "../assets/img/city/fountain.png";
+import market from "../assets/img/city/market.png";
+import gym from "../assets/img/city/gym.png";
+import stadium from "../assets/img/city/stadium.png";
+import parking from "../assets/img/city/parking.png";
+import gasstation from "../assets/img/city/gasstation.png";
+import church from "../assets/img/city/church.png";
+
+
+
+
 
 // 🧠 Данные
 const vocabluaryData = {
@@ -416,6 +515,112 @@ const vocabluaryData = {
       { de: "das Baby", ru: "младенец", ua: "немовля", en: "baby", image: baby, learned: false },
     ],
   },
+  Home: {
+    level: "A1",
+    image: homeIcon,
+    words: [
+      { de: "das Haus", ru: "дом", ua: "дім", en: "house", image: house, learned: false },
+      { de: "die Wohnung", ru: "квартира", ua: "квартира", en: "apartment", image: apartment, learned: false },
+      { de: "die Tür", ru: "дверь", ua: "двері", en: "door", image: door, learned: false },
+      { de: "das Fenster", ru: "окно", ua: "вікно", en: "window", image: window, learned: false },
+      { de: "das Dach", ru: "крыша", ua: "дах", en: "roof", image: roof, learned: false },
+      { de: "die Wand", ru: "стена", ua: "стіна", en: "wall", image: wall, learned: false },
+      { de: "der Boden", ru: "пол", ua: "підлога", en: "floor", image: floor, learned: false },
+      { de: "die Decke", ru: "потолок", ua: "стеля", en: "ceiling", image: ceiling, learned: false },
+      { de: "die Küche", ru: "кухня", ua: "кухня", en: "kitchen", image: kitchen, learned: false },
+      { de: "das Badezimmer", ru: "ванная", ua: "ванна кімната", en: "bathroom", image: bathroom, learned: false },
+      { de: "das Schlafzimmer", ru: "спальня", ua: "спальня", en: "bedroom", image: bedroom, learned: false },
+      { de: "das Wohnzimmer", ru: "гостиная", ua: "вітальня", en: "living room", image: livingroom, learned: false },
+      { de: "die Möbel", ru: "мебель", ua: "меблі", en: "furniture", image: furniture, learned: false },
+      { de: "der Tisch", ru: "стол", ua: "стіл", en: "table", image: table, learned: false },
+      { de: "der Stuhl", ru: "стул", ua: "стілець", en: "chair", image: chair, learned: false },
+      { de: "das Sofa", ru: "диван", ua: "диван", en: "sofa", image: sofa, learned: false },
+      { de: "das Bett", ru: "кровать", ua: "ліжко", en: "bed", image: bed, learned: false },
+      { de: "der Schrank", ru: "шкаф", ua: "шафа", en: "wardrobe", image: wardrobe, learned: false },
+      { de: "die Lampe", ru: "лампа", ua: "лампа", en: "lamp", image: lamp, learned: false },
+      { de: "der Balkon", ru: "балкон", ua: "балкон", en: "balcony", image: balcony, learned: false },
+      { de: "die Garage", ru: "гараж", ua: "гараж", en: "garage", image: garage, learned: false },
+      { de: "der Garten", ru: "сад", ua: "сад", en: "garden", image: garden, learned: false },
+      { de: "der Zaun", ru: "забор", ua: "паркан", en: "fence", image: fence, learned: false },
+      { de: "die Treppe", ru: "лестница", ua: "сходи", en: "stairs", image: stairs, learned: false },
+      { de: "der Aufzug", ru: "лифт", ua: "ліфт", en: "elevator", image: elevator, learned: false },
+      { de: "der Flur", ru: "коридор", ua: "коридор", en: "hallway", image: hallway, learned: false },
+      { de: "der Schlüssel", ru: "ключ", ua: "ключ", en: "key", image: key, learned: false },
+      { de: "die Miete", ru: "аренда", ua: "оренда", en: "rent", image: rent, learned: false },
+      { de: "der Vermieter", ru: "арендодатель", ua: "орендодавець", en: "landlord", image: landlord, learned: false },
+    ],
+  },
+  Job: {
+    level: "A1",
+    image: workIcon,
+    words: [
+      { de: "das Büro", ru: "офис", ua: "офіс", en: "office", image: office, learned: false },
+      { de: "die Arbeit", ru: "работа", ua: "робота", en: "job", image: job, learned: false },
+      { de: "der Chef", ru: "шеф", ua: "шеф", en: "boss", image: boss, learned: false },
+      { de: "der Kollege", ru: "коллега", ua: "колега", en: "colleague", image: colleague, learned: false },
+      { de: "das Meeting", ru: "встреча", ua: "зустріч", en: "meeting", image: meeting, learned: false },
+      { de: "der Computer", ru: "компьютер", ua: "комп’ютер", en: "computer", image: computer, learned: false },
+      { de: "der Schreibtisch", ru: "письменный стол", ua: "письмовий стіл", en: "desk", image: desk, learned: false },
+      { de: "der Stuhl", ru: "стул", ua: "стілець", en: "chair", image: workChair, learned: false },
+      { de: "das Dokument", ru: "документ", ua: "документ", en: "document", image: document, learned: false },
+      { de: "das Telefon", ru: "телефон", ua: "телефон", en: "phone", image: phone, learned: false },
+      { de: "die E-Mail", ru: "электронная почта", ua: "електронна пошта", en: "email", image: email, learned: false },
+      { de: "der Drucker", ru: "принтер", ua: "принтер", en: "printer", image: printer, learned: false },
+      { de: "der Vertrag", ru: "контракт", ua: "контракт", en: "contract", image: contract, learned: false },
+      { de: "der Lebenslauf", ru: "резюме", ua: "резюме", en: "resume", image: resume, learned: false },
+      { de: "das Vorstellungsgespräch", ru: "собеседование", ua: "співбесіда", en: "interview", image: interview, learned: false },
+      { de: "das Gehalt", ru: "зарплата", ua: "зарплата", en: "salary", image: salary, learned: false },
+      { de: "der Zeitplan", ru: "график", ua: "розклад", en: "schedule", image: schedule, learned: false },
+      { de: "die Aufgabe", ru: "задание", ua: "завдання", en: "task", image: task, learned: false },
+      { de: "die Frist", ru: "срок", ua: "термін", en: "deadline", image: deadline, learned: false },
+      { de: "die Pause", ru: "перерыв", ua: "перерва", en: "break time", image: breaktime, learned: false },
+      { de: "die Uniform", ru: "форма", ua: "форма", en: "uniform", image: uniform, learned: false },
+      { de: "die Karriere", ru: "карьера", ua: "кар’єра", en: "career", image: career, learned: false },
+      { de: "die Beförderung", ru: "повышение", ua: "підвищення", en: "promotion", image: promotion, learned: false },
+      { de: "der Freiberufler", ru: "фрилансер", ua: "фрилансер", en: "freelancer", image: freelancer, learned: false },
+      { de: "das Team", ru: "команда", ua: "команда", en: "team", image: team, learned: false },
+      { de: "das Projekt", ru: "проект", ua: "проєкт", en: "project", image: project, learned: false },
+      { de: "das Ziel", ru: "цель", ua: "ціль", en: "goal", image: goal, learned: false },
+      { de: "die Chefin", ru: "шефиня", ua: "шефиня", en: "boss (female)", image: bosslady, learned: false },
+      { de: "der Manager", ru: "менеджер", ua: "менеджер", en: "manager", image: manager, learned: false },
+    ],
+  },
+  City: {
+    level: "A1",
+    image: cityIcon,
+    words: [
+      { de: "die Straße", ru: "улица", ua: "вулиця", en: "street", image: streetCity, learned: false },
+      { de: "der Platz", ru: "площадь", ua: "площа", en: "square", image: square, learned: false },
+      { de: "die Bank", ru: "банк", ua: "банк", en: "bank", image: bank, learned: false },
+      { de: "die Apotheke", ru: "аптека", ua: "аптека", en: "pharmacy", image: pharmacy, learned: false },
+      { de: "das Krankenhaus", ru: "больница", ua: "лікарня", en: "hospital", image: hospital, learned: false },
+      { de: "die Polizei", ru: "полиция", ua: "поліція", en: "police", image: police, learned: false },
+      { de: "die Feuerwehr", ru: "пожарная станция", ua: "пожежна частина", en: "fire station", image: firestation, learned: false },
+      { de: "die Post", ru: "почта", ua: "пошта", en: "post office", image: postoffice, learned: false },
+      { de: "das Rathaus", ru: "ратуша", ua: "ратуша", en: "city hall", image: cityhall, learned: false },
+      { de: "die Bibliothek", ru: "библиотека", ua: "бібліотека", en: "library", image: library, learned: false },
+      { de: "das Museum", ru: "музей", ua: "музей", en: "museum", image: museum, learned: false },
+      { de: "die Schule", ru: "школа", ua: "школа", en: "school", image: school, learned: false },
+      { de: "die Universität", ru: "университет", ua: "університет", en: "university", image: university, learned: false },
+      { de: "der Park", ru: "парк", ua: "парк", en: "park", image: park, learned: false },
+      { de: "der Spielplatz", ru: "детская площадка", ua: "дитячий майданчик", en: "playground", image: playground, learned: false },
+      { de: "der Supermarkt", ru: "супермаркет", ua: "супермаркет", en: "supermarket", image: supermarket, learned: false },
+      { de: "das Geschäft", ru: "магазин", ua: "магазин", en: "store", image: store, learned: false },
+      { de: "die Bäckerei", ru: "пекарня", ua: "пекарня", en: "bakery", image: bakery, learned: false },
+      { de: "das Restaurant", ru: "ресторан", ua: "ресторан", en: "restaurant", image: restaurant, learned: false },
+      { de: "das Café", ru: "кафе", ua: "кафе", en: "cafe", image: cafe, learned: false },
+      { de: "das Kino", ru: "кинотеатр", ua: "кінотеатр", en: "cinema", image: cinema, learned: false },
+      { de: "das Theater", ru: "театр", ua: "театр", en: "theater", image: theater, learned: false },
+      { de: "der Brunnen", ru: "фонтан", ua: "фонтан", en: "fountain", image: fountain, learned: false },
+      { de: "der Markt", ru: "рынок", ua: "ринок", en: "market", image: market, learned: false },
+      { de: "das Fitnessstudio", ru: "спортзал", ua: "спортзал", en: "gym", image: gym, learned: false },
+      { de: "das Stadion", ru: "стадион", ua: "стадіон", en: "stadium", image: stadium, learned: false },
+      { de: "der Parkplatz", ru: "парковка", ua: "паркінг", en: "parking", image: parking, learned: false },
+      { de: "die Tankstelle", ru: "заправка", ua: "заправка", en: "gas station", image: gasstation, learned: false },
+      { de: "die Kirche", ru: "церковь", ua: "церква", en: "church", image: church, learned: false },
+    ],
+  },
+  
   
 };
 
