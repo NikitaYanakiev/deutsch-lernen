@@ -8,6 +8,8 @@ import Header from "../../components/sections/header/header";
 import wordsData from "../../data/words.json";
 import confetti from "canvas-confetti";
 
+import { IoIosArrowBack } from "react-icons/io";
+
 import { FaVolumeHigh } from "react-icons/fa6";
 import { FiRefreshCcw } from "react-icons/fi";
 
@@ -20,12 +22,35 @@ const FlashcardGame = () => {
   const navigate = useNavigate();
   const words = wordsData[level]?.[lessonId] || [];
 
-  const [cards, setCards] = useState([...words]);
   const [isSpeaking, setIsSpeaking] = useState(false);
   const [flipped, setFlipped] = useState(false);
   const [learnedWords, setLearnedWords] = useState(
     JSON.parse(localStorage.getItem(`learned_${level}_${lessonId}`)) || []
   );
+  const [history, setHistory] = useState(() => {
+    const saved = localStorage.getItem(`flashcards_state_${level}_${lessonId}`);
+    if (saved) {
+      try {
+        const parsed = JSON.parse(saved);
+        return parsed.history || [];
+      } catch {
+        return [];
+      }
+    }
+    return [];
+  });
+  const [cards, setCards] = useState(() => {
+    const saved = localStorage.getItem(`flashcards_state_${level}_${lessonId}`);
+    if (saved) {
+      try {
+        const parsed = JSON.parse(saved);
+        return parsed.cards?.length ? parsed.cards : [...words];
+      } catch {
+        return [...words];
+      }
+    }
+    return [...words];
+  });
 
   useEffect(() => {
     localStorage.setItem(
@@ -44,6 +69,13 @@ const FlashcardGame = () => {
 
     localStorage.setItem("wordsLearned", totalWordsLearned);
   }, [learnedWords, level, lessonId]);
+
+  useEffect(() => {
+    localStorage.setItem(
+      `flashcards_state_${level}_${lessonId}`,
+      JSON.stringify({ cards, history })
+    );
+  }, [cards, history, level, lessonId]);
 
   const handleSpeak = () => {
     if (isSpeaking || cards.length === 0) return;
@@ -73,21 +105,45 @@ const FlashcardGame = () => {
   const handleDontKnow = () => nextCard(false);
 
   const nextCard = (isKnown) => {
-    if (learnedWords.length === words.length) return;
-
-    setFlipped(false);
+    if (cards.length <= 1) return;
+  
+    const current = cards[0];
+  
+    setHistory((prevHistory) => [...prevHistory, current]);
     setCards((prevCards) => {
-      if (prevCards.length <= 1) return prevCards;
-      return isKnown
+      const next = isKnown
         ? prevCards.slice(1)
-        : [...prevCards.slice(1), prevCards[0]];
+        : [...prevCards.slice(1), current];
+      return next;
     });
+    setFlipped(false);
   };
+  
+
+  const prevCard = () => {
+    if (history.length === 0) return;
+  
+    const newHistory = [...history];
+    const last = newHistory.pop();
+  
+    setHistory(newHistory);
+    setCards((prevCards) => [last, ...prevCards]);
+    setFlipped(false);
+  
+    if (learnedWords.includes(last.de)) {
+      const updatedLearned = learnedWords.filter((word) => word !== last.de);
+      setLearnedWords(updatedLearned);
+      localStorage.setItem(`learned_${level}_${lessonId}`, JSON.stringify(updatedLearned));
+    }
+  };
+  
 
   const resetProgress = () => {
     localStorage.removeItem(`learned_${level}_${lessonId}`);
+    localStorage.removeItem(`flashcards_state_${level}_${lessonId}`);
     setLearnedWords([]);
     setCards([...words]);
+    setHistory([]);
     setFlipped(false);
   };
 
@@ -112,14 +168,14 @@ const FlashcardGame = () => {
           progress={{ completed: learnedWords.length, total: words.length }}
         />
         <div className="finish-cards__container">
-          <div className="finish-cards__img">
+          <div className="finish-cards__image">
             <img src={finishImg} alt="finish" />
           </div>
           <h2 className="finish-cards__title">{t("flashcard_finish.title")}</h2>
           <p className="finish-cards__subtitle">
             {t("flashcard_finish.subtitle", { count: learnedWords.length })}
           </p>
-          <div className="finish-cards__btns">
+          <div className="finish-cards__actions">
             <button
               className="finish-cards__continue"
               onClick={() => navigate(`/${level}`)}
@@ -143,13 +199,24 @@ const FlashcardGame = () => {
         progress={{ completed: learnedWords.length, total: words.length }}
       />
       {cards.length > 0 ? (
-        <div className="flashcard-container">
+        <div className="flashcard-game__container">
+          {history.length > 0 && (
+            <button
+              onClick={prevCard}
+              className="flashcard-game__btn-prev"
+              title="Назад"
+            >
+              <IoIosArrowBack />
+            </button>
+          )}
           <div
-            className={`flashcard ${flipped ? "flipped" : ""}`}
+            className={`flashcard-game__card ${
+              flipped ? "flashcard-game__card--flipped" : ""
+            }`}
             onClick={handleFlip}
           >
-            <div className="flashcard__front">{cards[0]?.de}</div>
-            <div className="flashcard__back">
+            <div className="flashcard-game__card-front">{cards[0]?.de}</div>
+            <div className="flashcard-game__card-back">
               {(() => {
                 const lang = localStorage.getItem("i18nextLng");
                 const word = cards[0];
@@ -170,15 +237,23 @@ const FlashcardGame = () => {
             onClick={handleSpeak}
             title="Прослушать"
             disabled={isSpeaking}
-            className={`flashcard__sound-btn ${isSpeaking ? "disabled" : ""}`}
+            className={`flashcard-game__card-sound ${
+              isSpeaking ? "flashcard-game__card-sound--disabled" : ""
+            }`}
           >
-            <FaVolumeHigh className="flashcard__sound-icon" />
+            <FaVolumeHigh className="flashcard-game__card-sound-icon" />
           </button>
-          <div className="buttons">
-            <button className="btn btn--no" onClick={handleDontKnow}>
+          <div className="flashcard-game__buttons">
+            <button
+              className="flashcard-game__buttons-btn flashcard-game__buttons-btn--no"
+              onClick={handleDontKnow}
+            >
               {t("dontKnow")}
             </button>
-            <button className="btn btn--yes" onClick={handleKnow}>
+            <button
+              className="flashcard-game__buttons-btn flashcard-game__buttons-btn--yes"
+              onClick={handleKnow}
+            >
               {t("know")}
             </button>
           </div>
@@ -186,7 +261,7 @@ const FlashcardGame = () => {
       ) : (
         <h2>Нет слов для этой лекции</h2>
       )}
-      <button onClick={resetProgress} className="btn-reset">
+      <button onClick={resetProgress} className="flashcard-game__reset-btn">
         {t("reset")}
       </button>
       <Navbar />
